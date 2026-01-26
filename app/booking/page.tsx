@@ -15,12 +15,7 @@ const services = [
 ]
 
 const stylists = [
-  { name: 'Irina V.', specialty: 'Master Stylist' },
-  { name: 'Marcus C.', specialty: 'Colorist' },
-  { name: 'Sofia R.', specialty: 'Cutting' },
-  { name: 'David K.', specialty: "Men's Expert" },
-  { name: 'Emma T.', specialty: 'Treatments' },
-  { name: 'Any Available', specialty: 'First Available' },
+  { name: 'Irina', specialty: 'Master Stylist & Colorist' },
 ]
 
 const times = ['9:00', '10:00', '11:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00']
@@ -173,7 +168,7 @@ export default function BookingPage() {
                 <div className="grid grid-cols-2 gap-5">
                   {[
                     { label: 'SERVICE', value: selectedService || 'Haircut' },
-                    { label: 'STYLIST', value: selectedStylist || 'Irina V.' },
+                    { label: 'STYLIST', value: selectedStylist || 'Irina' },
                     { label: 'DATE & TIME', value: `March 15, 2026 • ${selectedTime || '11:00'} AM` },
                     { label: 'ESTIMATED PRICE', value: '$85+' },
                   ].map((item) => (

@@ -8,6 +8,7 @@ const services = [
     description: 'Master-level cuts tailored to your face shape, lifestyle, and personal style.',
     price: 'From $75',
     image: '/images/pixie-blonde-highlights-1.jpg',
+    href: '/services/haircut-denver',
   },
   {
     icon: '🎨',
@@ -15,6 +16,7 @@ const services = [
     description: 'Balayage, highlights, full color—dimensional, natural-looking results.',
     price: 'From $150',
     image: '/images/balayage-brunette-long-1.jpg',
+    href: '/services/balayage-denver',
   },
   {
     icon: '✨',
@@ -22,6 +24,7 @@ const services = [
     description: 'Keratin treatments, deep conditioning, and scalp therapies.',
     price: 'From $100',
     image: '/images/layered-blonde-waves-1.jpg',
+    href: '/services/brazilian-blowout-denver',
   },
   {
     icon: '👑',
@@ -29,6 +32,7 @@ const services = [
     description: 'Picture-perfect styling for your most important moments.',
     price: 'From $250',
     image: '/images/curly-blonde-medium-1.jpg',
+    href: '/services',
   },
 ]
 
@@ -119,7 +123,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8">
           {services.map((service, i) => (
-            <div key={i} className="card card-hover overflow-hidden cursor-pointer group">
+            <Link key={i} href={service.href} className="card card-hover overflow-hidden cursor-pointer group block">
               {/* Service Image */}
               <div className="h-48 relative overflow-hidden">
                 <Image
@@ -149,7 +153,7 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

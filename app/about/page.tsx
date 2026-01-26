@@ -47,7 +47,7 @@ export default function AboutPage() {
           <div>
             <h2 className="font-heading text-4xl text-emerald-deep mb-6">A Legacy of Excellence</h2>
             <p className="font-body text-base leading-relaxed text-neutral-slate mb-5">
-              Founded in 2008 by master stylist Irina Volkov, our studio was born from a
+              Founded by master stylist Irina, our studio was born from a
               simple yet powerful belief: everyone deserves access to exceptional hair care.
             </p>
             <p className="font-body text-base leading-relaxed text-neutral-slate">
