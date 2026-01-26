@@ -6,6 +6,7 @@ import { HomePageSchema } from '@/components/SchemaMarkup'
 import { businessInfo, seoKeywords } from '@/lib/data'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(businessInfo.website),
   title: {
     default: `${businessInfo.name} | Premium Hair Salon Denver CO`,
     template: `%s | ${businessInfo.name}`,
