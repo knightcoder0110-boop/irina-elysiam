@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Irina Elysian'
   },
   description: 'Divine Beauty, For Everyone. Experience transformative hair design crafted with supreme skill and heavenly care at Irina Elysian Hair Design Studio.',
-  keywords: ['hair salon', 'hair stylist', 'balayage', 'hair color', 'haircut', 'Beverly Hills salon', 'premium hair design', 'bridal hair'],
+  keywords: ['hair salon', 'hair stylist', 'balayage', 'hair color', 'haircut', 'Denver salon', 'premium hair design', 'bridal hair'],
   authors: [{ name: 'Irina Elysian' }],
   creator: 'Irina Elysian Hair Design Studio',
   openGraph: {

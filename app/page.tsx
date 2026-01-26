@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   {
@@ -6,24 +7,28 @@ const services = [
     title: 'Precision Cutting',
     description: 'Master-level cuts tailored to your face shape, lifestyle, and personal style.',
     price: 'From $75',
+    image: '/images/pixie-blonde-highlights-1.jpg',
   },
   {
     icon: '🎨',
     title: 'Color Artistry',
     description: 'Balayage, highlights, full color—dimensional, natural-looking results.',
     price: 'From $150',
+    image: '/images/balayage-brunette-long-1.jpg',
   },
   {
     icon: '✨',
     title: 'Treatments & Care',
     description: 'Keratin treatments, deep conditioning, and scalp therapies.',
     price: 'From $100',
+    image: '/images/layered-blonde-waves-1.jpg',
   },
   {
     icon: '👑',
     title: 'Bridal & Special',
     description: 'Picture-perfect styling for your most important moments.',
     price: 'From $250',
+    image: '/images/curly-blonde-medium-1.jpg',
   },
 ]
 
@@ -39,17 +44,27 @@ const testimonials = [
     quote: "The attention to detail is extraordinary. I've never felt more confident.",
     name: 'Sarah M.',
     service: 'Balayage & Cut',
+    image: '/images/balayage-brunette-long-2.jpg',
   },
   {
     quote: 'A truly transformative experience. The whole family comes here now.',
     name: 'Michael R.',
     service: 'Family Styling',
+    image: '/images/bob-blonde-salon-1.jpg',
   },
   {
     quote: 'My wedding day hair was absolutely perfect. Worth every penny.',
     name: 'Emily K.',
     service: 'Bridal Services',
+    image: '/images/curly-blonde-medium-2.jpg',
   },
+]
+
+const featuredWork = [
+  { src: '/images/platinum-blonde-portrait.jpg', title: 'Platinum Perfection' },
+  { src: '/images/pixie-rose-gold-1.jpg', title: 'Rose Gold Dream' },
+  { src: '/images/bob-blonde-highlights-1.jpg', title: 'Classic Bob' },
+  { src: '/images/balayage-brunette-long-3.jpg', title: 'Sun-Kissed Balayage' },
 ]
 
 export default function HomePage() {
@@ -62,7 +77,7 @@ export default function HomePage() {
         <div className="decorative-circle bottom-[20%] right-[10%] w-48 h-48 bg-gradient-to-br from-gold-primary/10 to-transparent animate-float-reverse" />
 
         {/* Hero Content */}
-        <div className="text-center max-w-content px-10 z-10">
+        <div className="text-center max-w-content px-6 md:px-10 z-10">
           <p className="font-accent text-[13px] tracking-wide-8 text-gold-primary mb-6 uppercase">
             Divine Beauty, For Everyone
           </p>
@@ -97,7 +112,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-[120px] px-10 max-w-container mx-auto">
+      <section className="py-[120px] px-6 md:px-10 max-w-container mx-auto">
         <div className="text-center mb-20">
           <p className="section-label">OUR EXPERTISE</p>
           <h2 className="section-title">Signature Services</h2>
@@ -105,27 +120,81 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8">
           {services.map((service, i) => (
-            <div key={i} className="card card-hover p-12 cursor-pointer">
-              <div className="icon-circle icon-circle-gold mb-7">{service.icon}</div>
-              <h3 className="font-heading text-[26px] font-medium text-emerald-deep mb-4">
-                {service.title}
-              </h3>
-              <p className="font-body text-[15px] leading-[1.7] text-neutral-slate mb-6">
-                {service.description}
-              </p>
-              <div className="pt-5 border-t border-gold-primary/20 flex justify-between items-center">
-                <span className="font-display text-xl text-gold-primary">{service.price}</span>
-                <span className="font-accent text-[11px] tracking-wide-2 text-emerald-deep">
-                  LEARN MORE →
-                </span>
+            <div key={i} className="card card-hover overflow-hidden cursor-pointer group">
+              {/* Service Image */}
+              <div className="h-48 relative overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-white via-transparent to-transparent" />
+                <div className="absolute top-4 left-4 icon-circle icon-circle-gold">
+                  {service.icon}
+                </div>
+              </div>
+
+              {/* Service Content */}
+              <div className="p-8">
+                <h3 className="font-heading text-[26px] font-medium text-emerald-rich mb-4">
+                  {service.title}
+                </h3>
+                <p className="font-body text-[15px] leading-[1.7] text-neutral-stone mb-6">
+                  {service.description}
+                </p>
+                <div className="pt-5 border-t border-gold-primary/20 flex justify-between items-center">
+                  <span className="font-display text-xl text-gold-primary">{service.price}</span>
+                  <span className="font-accent text-[11px] tracking-wide-2 text-emerald-deep">
+                    LEARN MORE →
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
+      {/* Featured Work */}
+      <section className="py-20 px-6 md:px-10 bg-neutral-pearl/50">
+        <div className="max-w-container mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+            <div>
+              <p className="section-label">PORTFOLIO</p>
+              <h2 className="font-display text-4xl md:text-5xl text-emerald-deep">Featured Work</h2>
+            </div>
+            <Link
+              href="/gallery"
+              className="mt-4 md:mt-0 font-accent text-[12px] tracking-wide-2 text-gold-primary hover:text-emerald-deep transition-colors"
+            >
+              VIEW ALL GALLERY →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {featuredWork.map((item, i) => (
+              <div
+                key={i}
+                className="group relative aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <p className="font-heading text-sm text-neutral-white">{item.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Brand Promise */}
-      <section className="py-[120px] px-10 bg-emerald-gradient relative overflow-hidden">
+      <section className="py-[120px] px-6 md:px-10 bg-emerald-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-diagonal-pattern" />
 
         <div className="max-w-container-md mx-auto text-center relative z-10">
@@ -155,7 +224,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Preview */}
-      <section className="py-[120px] px-10 max-w-container-md mx-auto">
+      <section className="py-[120px] px-6 md:px-10 max-w-container-md mx-auto">
         <div className="text-center mb-16">
           <p className="section-label">CLIENT LOVE</p>
           <h2 className="section-title">What They Say</h2>
@@ -163,13 +232,24 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, i) => (
-            <div key={i} className="testimonial-card">
+            <div key={i} className="testimonial-card overflow-hidden group">
+              {/* Testimonial Image */}
+              <div className="h-40 -mx-10 -mt-10 mb-6 relative overflow-hidden">
+                <Image
+                  src={testimonial.image}
+                  alt={`${testimonial.name}'s styling`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-white via-neutral-white/50 to-transparent" />
+              </div>
+
               <div className="text-4xl text-gold-primary opacity-50 mb-5">"</div>
-              <p className="font-heading text-lg italic leading-relaxed text-neutral-charcoal mb-7">
+              <p className="font-heading text-lg italic leading-relaxed text-neutral-slate mb-7">
                 {testimonial.quote}
               </p>
               <div>
-                <p className="font-accent text-sm font-semibold text-emerald-deep mb-1">
+                <p className="font-accent text-sm font-semibold text-emerald-rich mb-1">
                   {testimonial.name}
                 </p>
                 <p className="font-body text-xs text-gold-primary">{testimonial.service}</p>
@@ -180,7 +260,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-[100px] px-10 bg-gradient-to-br from-gold-champagne/50 to-neutral-pearl text-center">
+      <section className="py-[100px] px-6 md:px-10 bg-gradient-to-br from-gold-champagne/50 to-neutral-pearl text-center">
         <h2 className="font-display text-4xl md:text-5xl text-emerald-deep mb-5">
           Ready for Your Transformation?
         </h2>

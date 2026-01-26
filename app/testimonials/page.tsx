@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Reviews & Testimonials',
@@ -6,12 +7,12 @@ export const metadata: Metadata = {
 }
 
 const reviews = [
-  { quote: "The balayage Marcus did is absolutely stunning. Everyone asks where I get my hair done!", name: 'Amanda S.', service: 'Balayage', rating: 5 },
-  { quote: "Best haircut I've ever had. Sofia really understood what I wanted.", name: 'Rachel T.', service: 'Precision Cut', rating: 5 },
-  { quote: "My husband and son both come here now. David is amazing with men's cuts.", name: 'Lisa M.', service: 'Family Services', rating: 5 },
-  { quote: "The Brazilian blowout changed my life. My morning routine is so much easier!", name: 'Caroline H.', service: 'Brazilian Blowout', rating: 5 },
-  { quote: "Olivia made me look like a princess on my wedding day. Couldn't be happier!", name: 'Jessica R.', service: 'Bridal', rating: 5 },
-  { quote: "Finally found a colorist who gets it. My highlights look natural and expensive.", name: 'Megan K.', service: 'Highlights', rating: 5 },
+  { quote: "The balayage Marcus did is absolutely stunning. Everyone asks where I get my hair done!", name: 'Amanda S.', service: 'Balayage', rating: 5, image: '/images/balayage-brunette-long-1.jpg' },
+  { quote: "Best haircut I've ever had. Sofia really understood what I wanted.", name: 'Rachel T.', service: 'Precision Cut', rating: 5, image: '/images/pixie-blonde-highlights-1.jpg' },
+  { quote: "My husband and son both come here now. David is amazing with men's cuts.", name: 'Lisa M.', service: 'Family Services', rating: 5, image: '/images/bob-blonde-salon-1.jpg' },
+  { quote: "The Brazilian blowout changed my life. My morning routine is so much easier!", name: 'Caroline H.', service: 'Brazilian Blowout', rating: 5, image: '/images/layered-blonde-waves-1.jpg' },
+  { quote: "Olivia made me look like a princess on my wedding day. Couldn't be happier!", name: 'Jessica R.', service: 'Bridal', rating: 5, image: '/images/curly-blonde-medium-1.jpg' },
+  { quote: "Finally found a colorist who gets it. My highlights look natural and expensive.", name: 'Megan K.', service: 'Highlights', rating: 5, image: '/images/bob-blonde-highlights-1.jpg' },
 ]
 
 const stats = [
@@ -48,7 +49,17 @@ export default function TestimonialsPage() {
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reviews.map((review, i) => (
-            <div key={i} className="testimonial-card">
+            <div key={i} className="testimonial-card overflow-hidden group">
+              {/* Review Image */}
+              <div className="h-40 -mx-10 -mt-10 mb-6 relative overflow-hidden">
+                <Image
+                  src={review.image}
+                  alt={`${review.name}'s styling`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-white via-neutral-white/50 to-transparent" />
+              </div>
               <div className="flex gap-1 mb-5">
                 {[...Array(review.rating)].map((_, j) => (
                   <span key={j} className="text-gold-primary text-lg">
@@ -56,11 +67,11 @@ export default function TestimonialsPage() {
                   </span>
                 ))}
               </div>
-              <p className="font-heading text-lg italic leading-relaxed text-neutral-charcoal mb-6">
+              <p className="font-heading text-lg italic leading-relaxed text-neutral-slate mb-6">
                 "{review.quote}"
               </p>
               <div className="flex justify-between items-center">
-                <p className="font-accent text-sm font-semibold text-emerald-deep">
+                <p className="font-accent text-sm font-semibold text-emerald-rich">
                   {review.name}
                 </p>
                 <span className="badge badge-emerald">{review.service}</span>

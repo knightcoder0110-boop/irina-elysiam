@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -55,8 +56,14 @@ export default function AboutPage() {
               guest.
             </p>
           </div>
-          <div className="h-96 rounded-3xl bg-gradient-to-br from-gold-champagne to-emerald-pale flex items-center justify-center">
-            <span className="text-8xl">✨</span>
+          <div className="h-96 rounded-3xl overflow-hidden relative group">
+            <Image
+              src="/images/platinum-blonde-portrait.jpg"
+              alt="Irina Elysian Studio"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/30 to-transparent" />
           </div>
         </div>
 

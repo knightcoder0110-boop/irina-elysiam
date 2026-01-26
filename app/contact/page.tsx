@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Irina Elysian Hair Design Studio. Visit us in Beverly Hills or send us a message.',
+  description: 'Get in touch with Irina Elysian Hair Design Studio. Visit us in Denver or send us a message.',
 }
 
 const hours = [
@@ -65,11 +65,11 @@ export default function ContactPage() {
                 VISIT US
               </h4>
               <p className="font-heading text-xl text-neutral-pearl leading-relaxed">
-                123 Elysian Boulevard
+                100 S Madison St
                 <br />
-                Suite 200
+                Suite 2A
                 <br />
-                Beverly Hills, CA 90210
+                Denver, CO 80209
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
                     i < hours.length - 1 ? 'border-b border-gold-primary/15' : ''
                   }`}
                 >
-                  <span className="font-body text-sm text-neutral-charcoal">{item.day}</span>
+                  <span className="font-body text-sm text-neutral-slate">{item.day}</span>
                   <span className="font-accent text-[12px] text-emerald-deep">{item.hours}</span>
                 </div>
               ))}
@@ -96,7 +96,7 @@ export default function ContactPage() {
               <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 CONTACT
               </h4>
-              <p className="font-body text-base text-emerald-deep mb-3">📞 (310) 555-HAIR</p>
+              <p className="font-body text-base text-emerald-deep mb-3">📞 (720) 505-7717</p>
               <p className="font-body text-base text-emerald-deep mb-3">
                 ✉️ hello@irinaelysian.com
               </p>

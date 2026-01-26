@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Our Team',
@@ -12,6 +13,7 @@ const team = [
     specialty: 'Color & Cutting',
     years: '20+ years',
     bio: 'Trained in Paris and Milan. Creator of the Elysian color technique.',
+    image: '/images/platinum-blonde-portrait.jpg',
   },
   {
     name: 'Marcus Chen',
@@ -19,6 +21,7 @@ const team = [
     specialty: 'Balayage & Vivids',
     years: '12 years',
     bio: 'Award-winning colorist specializing in dimensional color.',
+    image: '/images/balayage-brunette-long-1.jpg',
   },
   {
     name: 'Sofia Rodriguez',
@@ -26,6 +29,7 @@ const team = [
     specialty: 'Precision Cuts',
     years: '8 years',
     bio: 'Known for transformative precision cuts and texture.',
+    image: '/images/pixie-blonde-highlights-1.jpg',
   },
   {
     name: 'David Kim',
@@ -33,6 +37,7 @@ const team = [
     specialty: 'Classic & Modern Barber',
     years: '10 years',
     bio: 'Master of traditional barbering with a modern edge.',
+    image: '/images/bob-blonde-salon-1.jpg',
   },
   {
     name: 'Emma Thompson',
@@ -40,6 +45,7 @@ const team = [
     specialty: 'Keratin & Repair',
     years: '7 years',
     bio: 'Expert in restorative treatments and hair health.',
+    image: '/images/layered-blonde-waves-1.jpg',
   },
   {
     name: 'Olivia Brown',
@@ -47,6 +53,7 @@ const team = [
     specialty: 'Special Occasions',
     years: '15 years',
     bio: 'Over 500 weddings styled with picture-perfect results.',
+    image: '/images/curly-blonde-medium-1.jpg',
   },
 ]
 
@@ -64,35 +71,37 @@ export default function TeamPage() {
       </section>
 
       {/* Team Grid */}
-      <section className="py-[100px] px-10 max-w-container-md mx-auto">
+      <section className="py-[100px] px-6 md:px-10 max-w-container-md mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {team.map((member, i) => (
-            <div key={i} className="team-card">
-              {/* Avatar Section */}
-              <div className="h-52 bg-gradient-to-br from-gold-champagne/60 to-emerald-pale/40 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-neutral-white border-[3px] border-gold-primary flex items-center justify-center">
-                  <span className="font-display text-3xl text-emerald-deep">
-                    {member.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')}
-                  </span>
+            <div key={i} className="team-card group">
+              {/* Image Section */}
+              <div className="h-64 relative overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={`Work by ${member.name}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/60 to-transparent" />
+
+                {/* Name overlay on image */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="font-heading text-xl text-neutral-white mb-1">{member.name}</h3>
+                  <p className="font-accent text-[10px] tracking-wide-2 text-gold-primary">
+                    {member.role}
+                  </p>
                 </div>
               </div>
 
               {/* Info Section */}
-              <div className="p-7">
-                <h3 className="font-heading text-xl text-emerald-deep mb-1">{member.name}</h3>
-                <p className="font-accent text-[10px] tracking-wide-2 text-gold-primary mb-4">
-                  {member.role}
-                </p>
-
-                <div className="flex gap-3 mb-4 flex-wrap">
+              <div className="p-6">
+                <div className="flex gap-2 mb-4 flex-wrap">
                   <span className="badge badge-emerald">{member.specialty}</span>
                   <span className="badge badge-gold">{member.years}</span>
                 </div>
 
-                <p className="font-body text-sm leading-relaxed text-neutral-slate">
+                <p className="font-body text-sm leading-relaxed text-neutral-stone">
                   {member.bio}
                 </p>
               </div>

@@ -1,22 +1,94 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Gallery',
   description: 'Browse our portfolio of stunning hair transformations at Irina Elysian Hair Design Studio.',
 }
 
-const categories = ['All', 'Color', 'Cuts', 'Treatments', 'Bridal', 'Men']
+const categories = ['All', 'Color', 'Cuts', 'Styling', 'Highlights']
 
 const galleryItems = [
-  { category: 'Balayage', color: 'bg-gold-champagne' },
-  { category: 'Precision Cut', color: 'bg-emerald-pale' },
-  { category: 'Bridal Updo', color: 'bg-accent-rose/30' },
-  { category: "Men's Grooming", color: 'bg-neutral-mist' },
-  { category: 'Color Correction', color: 'bg-gold-shimmer/50' },
-  { category: 'Brazilian Blowout', color: 'bg-emerald-pale' },
-  { category: 'Fashion Color', color: 'bg-accent-burgundy/30' },
-  { category: 'Natural Highlights', color: 'bg-gold-champagne' },
-  { category: 'Textured Layers', color: 'bg-neutral-pearl' },
+  {
+    src: '/images/balayage-brunette-long-1.jpg',
+    category: 'Color',
+    title: 'Brunette Balayage',
+  },
+  {
+    src: '/images/pixie-blonde-highlights-1.jpg',
+    category: 'Cuts',
+    title: 'Pixie Cut',
+  },
+  {
+    src: '/images/curly-blonde-medium-1.jpg',
+    category: 'Styling',
+    title: 'Voluminous Curls',
+  },
+  {
+    src: '/images/pixie-rose-gold-1.jpg',
+    category: 'Color',
+    title: 'Rose Gold Pixie',
+  },
+  {
+    src: '/images/layered-blonde-waves-1.jpg',
+    category: 'Styling',
+    title: 'Layered Waves',
+  },
+  {
+    src: '/images/bob-blonde-highlights-1.jpg',
+    category: 'Highlights',
+    title: 'Blonde Bob',
+  },
+  {
+    src: '/images/platinum-blonde-portrait.jpg',
+    category: 'Color',
+    title: 'Platinum Blonde',
+  },
+  {
+    src: '/images/balayage-brunette-long-2.jpg',
+    category: 'Highlights',
+    title: 'Natural Highlights',
+  },
+  {
+    src: '/images/pixie-blonde-highlights-2.jpg',
+    category: 'Cuts',
+    title: 'Textured Pixie',
+  },
+  {
+    src: '/images/bob-blonde-salon-1.jpg',
+    category: 'Cuts',
+    title: 'Classic Bob',
+  },
+  {
+    src: '/images/pixie-rose-gold-2.jpg',
+    category: 'Color',
+    title: 'Peach Tones',
+  },
+  {
+    src: '/images/curly-blonde-medium-2.jpg',
+    category: 'Styling',
+    title: 'Bouncy Curls',
+  },
+  {
+    src: '/images/pixie-blonde-highlights-3.jpg',
+    category: 'Cuts',
+    title: 'Modern Pixie',
+  },
+  {
+    src: '/images/balayage-brunette-long-3.jpg',
+    category: 'Highlights',
+    title: 'Sun-Kissed Balayage',
+  },
+  {
+    src: '/images/bob-blonde-back-1.jpg',
+    category: 'Cuts',
+    title: 'Layered Bob',
+  },
+  {
+    src: '/images/pixie-blonde-highlights-4.jpg',
+    category: 'Highlights',
+    title: 'Dimensional Highlights',
+  },
 ]
 
 export default function GalleryPage() {
@@ -32,7 +104,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-20 px-10 max-w-container mx-auto">
+      <section className="py-20 px-6 md:px-10 max-w-container mx-auto">
         {/* Category Filter */}
         <div className="flex gap-3 justify-center mb-16 flex-wrap">
           {categories.map((cat, i) => (
@@ -50,16 +122,32 @@ export default function GalleryPage() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {galleryItems.map((item, i) => (
             <div
               key={i}
-              className={`aspect-[4/5] rounded-2xl ${item.color} flex flex-col items-center justify-center cursor-pointer border border-gold-primary/15 transition-all duration-300 hover:scale-[1.02] hover:shadow-card`}
+              className="group relative aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer border border-gold-primary/10 transition-all duration-500 hover:shadow-card hover:border-gold-primary/30"
             >
-              <span className="text-5xl mb-5">✨</span>
-              <p className="font-accent text-[11px] tracking-wide-2 text-emerald-deep">
-                {item.category.toUpperCase()}
-              </p>
+              {/* Image */}
+              <Image
+                src={item.src}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/90 via-emerald-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="inline-block px-3 py-1 rounded-full bg-gold-primary/90 text-emerald-deep font-accent text-[10px] tracking-wide-2 mb-2">
+                  {item.category.toUpperCase()}
+                </span>
+                <h3 className="font-heading text-lg text-neutral-white">
+                  {item.title}
+                </h3>
+              </div>
             </div>
           ))}
         </div>

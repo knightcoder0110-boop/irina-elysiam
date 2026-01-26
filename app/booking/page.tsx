@@ -89,7 +89,7 @@ export default function BookingPage() {
                   >
                     <span className="text-3xl">{service.icon}</span>
                     <div className="flex-1">
-                      <p className="font-heading text-lg text-emerald-deep">{service.name}</p>
+                      <p className="font-heading text-lg text-emerald-rich">{service.name}</p>
                     </div>
                     <span className="font-accent text-sm text-gold-primary">{service.price}</span>
                   </div>
@@ -120,8 +120,8 @@ export default function BookingPage() {
                         {stylist.name.split(' ')[0][0]}
                       </span>
                     </div>
-                    <p className="font-heading text-base text-emerald-deep mb-1">{stylist.name}</p>
-                    <p className="font-body text-xs text-neutral-slate">{stylist.specialty}</p>
+                    <p className="font-heading text-base text-emerald-rich mb-1">{stylist.name}</p>
+                    <p className="font-body text-xs text-neutral-stone">{stylist.specialty}</p>
                   </div>
                 ))}
               </div>
@@ -181,7 +181,7 @@ export default function BookingPage() {
                       <p className="font-accent text-[10px] tracking-wide-2 text-gold-primary mb-1">
                         {item.label}
                       </p>
-                      <p className="font-heading text-lg text-emerald-deep">{item.value}</p>
+                      <p className="font-heading text-lg text-emerald-rich">{item.value}</p>
                     </div>
                   ))}
                 </div>
