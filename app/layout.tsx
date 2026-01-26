@@ -2,36 +2,42 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { HomePageSchema } from '@/components/SchemaMarkup'
+import { businessInfo, seoKeywords } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Irina Elysian | Premium Hair Design Studio',
-    template: '%s | Irina Elysian'
+    default: `${businessInfo.name} | Premium Hair Salon Denver CO`,
+    template: `%s | ${businessInfo.name}`,
   },
-  description: 'Divine Beauty, For Everyone. Experience transformative hair design crafted with supreme skill and heavenly care at Irina Elysian Hair Design Studio.',
-  keywords: ['hair salon', 'hair stylist', 'balayage', 'hair color', 'haircut', 'Denver salon', 'premium hair design', 'bridal hair'],
-  authors: [{ name: 'Irina Elysian' }],
-  creator: 'Irina Elysian Hair Design Studio',
+  description: `${businessInfo.tagline}. ${businessInfo.description} Located in Denver, CO near Washington Park & Cherry Creek.`,
+  keywords: [
+    ...seoKeywords.primary,
+    ...seoKeywords.secondary,
+    ...seoKeywords.services,
+  ],
+  authors: [{ name: businessInfo.name }],
+  creator: businessInfo.legalName,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://irinaelysian.com',
-    siteName: 'Irina Elysian',
-    title: 'Irina Elysian | Premium Hair Design Studio',
-    description: 'Divine Beauty, For Everyone. Experience transformative hair design crafted with supreme skill and heavenly care.',
+    url: businessInfo.website,
+    siteName: businessInfo.name,
+    title: `${businessInfo.name} | Premium Hair Salon Denver CO`,
+    description: `${businessInfo.tagline}. Premium coloring, cutting, and treatments in Denver. Near Washington Park & Cherry Creek.`,
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Irina Elysian Hair Design Studio',
+        alt: businessInfo.legalName,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Irina Elysian | Premium Hair Design Studio',
-    description: 'Divine Beauty, For Everyone. Experience transformative hair design crafted with supreme skill and heavenly care.',
+    title: `${businessInfo.name} | Premium Hair Salon Denver`,
+    description: `${businessInfo.tagline}. Premium hair services in Denver, CO.`,
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -45,6 +51,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: businessInfo.website,
+  },
+  verification: {
+    // Add your verification codes here when ready
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+  },
 }
 
 export default function RootLayout({
@@ -54,6 +68,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <HomePageSchema />
+      </head>
       <body className="min-h-screen bg-neutral-cream text-neutral-charcoal font-body">
         <Navigation />
         <main>{children}</main>
