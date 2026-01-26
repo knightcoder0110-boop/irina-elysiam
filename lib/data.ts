@@ -245,7 +245,7 @@ export const stats = [
 ]
 
 export const reviewStats = [
-  { value: '5.0', label: 'Google Rating' },
-  { value: '100%', label: 'Would Recommend' },
+  { value: '5.0', label: 'Rating' },
+  { value: '100+', label: 'Reviews' },
   { value: '15+', label: 'Years Experience' },
 ]
