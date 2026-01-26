@@ -26,19 +26,19 @@ export default function GalleryPage() {
       <section className="page-header">
         <p className="section-label">OUR WORK</p>
         <h1 className="font-display text-5xl md:text-7xl text-emerald-deep mb-5">Gallery</h1>
-        <p className="font-body text-lg text-neutral-slate max-w-xl mx-auto">
+        <p className="font-body text-lg text-neutral-slate max-w-text mx-auto">
           Browse our portfolio of transformations. Every style tells a story.
         </p>
       </section>
 
       {/* Gallery */}
-      <section className="py-20 px-10 max-w-7xl mx-auto">
+      <section className="py-20 px-10 max-w-container mx-auto">
         {/* Category Filter */}
         <div className="flex gap-3 justify-center mb-16 flex-wrap">
           {categories.map((cat, i) => (
             <button
               key={cat}
-              className={`px-7 py-3 rounded-full font-accent text-xs tracking-widest transition-all duration-300 ${
+              className={`px-7 py-3 rounded-full font-accent text-[11px] tracking-wide-2 transition-all duration-300 ${
                 i === 0
                   ? 'bg-gold-primary text-emerald-deep'
                   : 'border border-emerald-deep/30 text-neutral-slate hover:border-gold-primary hover:text-gold-primary'
@@ -57,7 +57,7 @@ export default function GalleryPage() {
               className={`aspect-[4/5] rounded-2xl ${item.color} flex flex-col items-center justify-center cursor-pointer border border-gold-primary/15 transition-all duration-300 hover:scale-[1.02] hover:shadow-card`}
             >
               <span className="text-5xl mb-5">✨</span>
-              <p className="font-accent text-xs tracking-widest text-emerald-deep">
+              <p className="font-accent text-[11px] tracking-wide-2 text-emerald-deep">
                 {item.category.toUpperCase()}
               </p>
             </div>

@@ -41,7 +41,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-24 px-10 max-w-5xl mx-auto">
+      <section className="py-[100px] px-10 max-w-container-sm mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <h2 className="font-heading text-4xl text-emerald-deep mb-6">A Legacy of Excellence</h2>
@@ -79,8 +79,8 @@ export default function AboutPage() {
       </section>
 
       {/* Amenities */}
-      <section className="py-24 px-10 bg-emerald-gradient">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-[100px] px-10 bg-emerald-gradient">
+        <div className="max-w-container-md mx-auto">
           <h3 className="font-display text-4xl text-gold-light text-center mb-16">
             The Elysian Experience
           </h3>

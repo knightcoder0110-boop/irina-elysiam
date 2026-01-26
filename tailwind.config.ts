@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'container': '1400px',
+        'container-md': '1200px',
+        'container-sm': '1000px',
+        'content': '900px',
+        'content-sm': '700px',
+        'text': '600px',
+        'text-sm': '500px',
+      },
       colors: {
         // Emerald Palette
         emerald: {
@@ -54,8 +63,10 @@ const config: Config = {
         accent: ['Montserrat', 'Helvetica Neue', 'sans-serif'],
       },
       letterSpacing: {
-        'extra-wide': '0.25em',
-        'ultra-wide': '0.5em',
+        'wide-2': '2px',
+        'wide-3': '3px',
+        'wide-5': '5px',
+        'wide-8': '8px',
       },
       animation: {
         'float': 'float 8s ease-in-out infinite',

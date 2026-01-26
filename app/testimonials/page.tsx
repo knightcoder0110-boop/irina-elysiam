@@ -32,7 +32,7 @@ export default function TestimonialsPage() {
         </h1>
       </section>
 
-      <section className="py-24 px-10 max-w-6xl mx-auto">
+      <section className="py-[100px] px-10 max-w-container-md mx-auto">
         {/* Featured Review */}
         <div className="p-16 rounded-3xl bg-emerald-gradient text-center mb-16">
           <div className="text-5xl opacity-40 mb-6">"</div>
@@ -40,7 +40,7 @@ export default function TestimonialsPage() {
             Irina Elysian transformed not just my hair, but my entire sense of self. From
             the moment I walked in, I knew I'd found my forever salon.
           </p>
-          <p className="font-accent text-sm tracking-widest text-gold-champagne">
+          <p className="font-accent text-[13px] tracking-wide-2 text-gold-champagne">
             JENNIFER L. • CLIENT SINCE 2019
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
           {stats.map((stat, i) => (
             <div key={i}>
               <p className="font-display text-4xl text-emerald-deep mb-2">{stat.value}</p>
-              <p className="font-accent text-xs tracking-wide text-neutral-slate">
+              <p className="font-accent text-[11px] tracking-wide-2 text-neutral-slate">
                 {stat.label}
               </p>
             </div>

@@ -62,8 +62,8 @@ export default function HomePage() {
         <div className="decorative-circle bottom-[20%] right-[10%] w-48 h-48 bg-gradient-to-br from-gold-primary/10 to-transparent animate-float-reverse" />
 
         {/* Hero Content */}
-        <div className="text-center max-w-4xl px-10 z-10">
-          <p className="font-accent text-sm tracking-ultra-wide text-gold-primary mb-6 uppercase">
+        <div className="text-center max-w-content px-10 z-10">
+          <p className="font-accent text-[13px] tracking-wide-8 text-gold-primary mb-6 uppercase">
             Divine Beauty, For Everyone
           </p>
 
@@ -72,7 +72,7 @@ export default function HomePage() {
             <span className="block text-gradient-gold">Meets Elegance</span>
           </h1>
 
-          <p className="font-body text-lg leading-relaxed text-neutral-slate max-w-xl mx-auto mb-12">
+          <p className="font-body text-lg leading-relaxed text-neutral-slate max-w-text mx-auto mb-12">
             Experience transformative hair design crafted with supreme skill and heavenly
             care. Every visit is a journey to your most radiant self.
           </p>
@@ -89,7 +89,7 @@ export default function HomePage() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-          <p className="font-accent text-xs tracking-widest text-neutral-silver mb-3">
+          <p className="font-accent text-[10px] tracking-wide-3 text-neutral-silver mb-3">
             SCROLL TO DISCOVER
           </p>
           <div className="w-px h-10 bg-gradient-to-b from-gold-primary to-transparent mx-auto animate-pulse-slow" />
@@ -97,13 +97,13 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-32 px-10 max-w-7xl mx-auto">
+      <section className="py-[120px] px-10 max-w-container mx-auto">
         <div className="text-center mb-20">
           <p className="section-label">OUR EXPERTISE</p>
           <h2 className="section-title">Signature Services</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8">
           {services.map((service, i) => (
             <div key={i} className="card card-hover p-12 cursor-pointer">
               <div className="icon-circle icon-circle-gold mb-7">{service.icon}</div>
@@ -125,10 +125,10 @@ export default function HomePage() {
       </section>
 
       {/* Brand Promise */}
-      <section className="py-32 px-10 bg-emerald-gradient relative overflow-hidden">
+      <section className="py-[120px] px-10 bg-emerald-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-diagonal-pattern" />
 
-        <div className="max-w-6xl mx-auto text-center relative z-10">
+        <div className="max-w-container-md mx-auto text-center relative z-10">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold-primary to-gold-light flex items-center justify-center mx-auto mb-10 text-4xl">
             👑
           </div>
@@ -137,7 +137,7 @@ export default function HomePage() {
             "Divine Beauty, For Everyone"
           </h2>
 
-          <p className="font-body text-lg leading-relaxed text-neutral-pearl max-w-2xl mx-auto mb-12">
+          <p className="font-body text-lg leading-relaxed text-neutral-pearl max-w-content-sm mx-auto mb-12">
             At Irina Elysian, we believe premium quality shouldn't be exclusive. We serve
             every guest—women, men, children, families—with the same unwavering dedication
             to excellence.
@@ -155,7 +155,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Preview */}
-      <section className="py-32 px-10 max-w-6xl mx-auto">
+      <section className="py-[120px] px-10 max-w-container-md mx-auto">
         <div className="text-center mb-16">
           <p className="section-label">CLIENT LOVE</p>
           <h2 className="section-title">What They Say</h2>
@@ -180,16 +180,16 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-10 bg-gradient-to-br from-gold-champagne/50 to-neutral-pearl text-center">
+      <section className="py-[100px] px-10 bg-gradient-to-br from-gold-champagne/50 to-neutral-pearl text-center">
         <h2 className="font-display text-4xl md:text-5xl text-emerald-deep mb-5">
           Ready for Your Transformation?
         </h2>
-        <p className="font-body text-base text-neutral-slate max-w-md mx-auto mb-10">
+        <p className="font-body text-base text-neutral-slate max-w-text-sm mx-auto mb-10">
           Book your appointment today and discover the Irina Elysian difference.
         </p>
         <Link
           href="/booking"
-          className="inline-block px-16 py-5 rounded-full bg-emerald-gradient text-gold-light font-accent text-sm font-semibold tracking-widest shadow-emerald transition-all duration-300 hover:-translate-y-0.5"
+          className="inline-block px-16 py-5 rounded-full bg-emerald-gradient text-gold-light font-accent text-[13px] font-semibold tracking-wide-3 shadow-emerald transition-all duration-300 hover:-translate-y-0.5"
         >
           BOOK YOUR APPOINTMENT
         </Link>

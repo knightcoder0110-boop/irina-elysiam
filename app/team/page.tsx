@@ -57,14 +57,14 @@ export default function TeamPage() {
       <section className="page-header bg-gradient-to-br from-neutral-pearl to-emerald-pale/30">
         <p className="section-label">MEET THE ARTISTS</p>
         <h1 className="font-display text-5xl md:text-7xl text-emerald-deep mb-5">Our Team</h1>
-        <p className="font-body text-lg text-neutral-slate max-w-xl mx-auto">
+        <p className="font-body text-lg text-neutral-slate max-w-text mx-auto">
           Master stylists, color experts, and treatment specialists—united by a passion for
           transformative beauty.
         </p>
       </section>
 
       {/* Team Grid */}
-      <section className="py-24 px-10 max-w-6xl mx-auto">
+      <section className="py-[100px] px-10 max-w-container-md mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {team.map((member, i) => (
             <div key={i} className="team-card">
@@ -83,7 +83,7 @@ export default function TeamPage() {
               {/* Info Section */}
               <div className="p-7">
                 <h3 className="font-heading text-xl text-emerald-deep mb-1">{member.name}</h3>
-                <p className="font-accent text-[10px] tracking-wide text-gold-primary mb-4">
+                <p className="font-accent text-[10px] tracking-wide-2 text-gold-primary mb-4">
                   {member.role}
                 </p>
 

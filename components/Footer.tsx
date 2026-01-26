@@ -7,7 +7,7 @@ const socials = ['Instagram', 'Facebook', 'Pinterest', 'TikTok']
 export default function Footer() {
   return (
     <footer className="bg-emerald-deep text-neutral-pearl py-20 px-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center">
                 <span className="font-display text-xl font-bold text-emerald-deep">IE</span>
               </div>
-              <h3 className="font-display text-xl tracking-widest text-gold-light">
+              <h3 className="font-display text-xl tracking-wide-3 text-gold-light">
                 IRINA ELYSIAN
               </h3>
             </div>
@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-accent text-xs tracking-widest text-gold-primary mb-6">
+            <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
               QUICK LINKS
             </h4>
             {quickLinks.map((link) => (
@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-accent text-xs tracking-widest text-gold-primary mb-6">
+            <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
               SERVICES
             </h4>
             {services.map((service) => (
@@ -55,7 +55,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-accent text-xs tracking-widest text-gold-primary mb-6">
+            <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
               CONTACT
             </h4>
             <p className="font-body text-sm mb-3 opacity-80">123 Elysian Boulevard</p>
@@ -74,7 +74,7 @@ export default function Footer() {
             {socials.map((social) => (
               <span
                 key={social}
-                className="font-accent text-xs tracking-wide cursor-pointer opacity-70 hover:opacity-100 hover:text-gold-light transition-all duration-300"
+                className="font-accent text-[10px] tracking-wide-2 cursor-pointer opacity-70 hover:opacity-100 hover:text-gold-light transition-all duration-300"
               >
                 {social.toUpperCase()}
               </span>

@@ -32,14 +32,14 @@ export default function Navigation() {
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-10 py-5 flex justify-between items-center">
+      <div className="max-w-container mx-auto px-10 py-5 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-4 group">
           <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold transition-transform duration-300 group-hover:scale-105">
             <span className="font-display text-xl font-bold text-emerald-deep">IE</span>
           </div>
           <div>
-            <h1 className="font-display text-xl font-semibold tracking-wide text-gradient-emerald">
+            <h1 className="font-display text-[22px] font-semibold tracking-wide-3 text-gradient-emerald">
               IRINA ELYSIAN
             </h1>
             <p className="font-accent text-[9px] tracking-widest text-gold-primary uppercase">

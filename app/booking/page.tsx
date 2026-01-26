@@ -41,7 +41,7 @@ export default function BookingPage() {
         <h1 className="font-display text-5xl md:text-7xl text-emerald-deep">Book Appointment</h1>
       </section>
 
-      <section className="py-20 px-10 max-w-4xl mx-auto">
+      <section className="py-20 px-10 max-w-content mx-auto">
         {/* Progress Steps */}
         <div className="flex justify-center gap-16 mb-16">
           {steps.map((label, i) => (
@@ -58,7 +58,7 @@ export default function BookingPage() {
                 {step > i + 1 ? '✓' : i + 1}
               </div>
               <span
-                className={`font-accent text-[10px] tracking-wide ${
+                className={`font-accent text-[10px] tracking-wide-2 ${
                   step >= i + 1 ? 'text-emerald-deep' : 'text-neutral-silver'
                 }`}
               >
@@ -146,7 +146,7 @@ export default function BookingPage() {
                       <button
                         key={time}
                         onClick={() => setSelectedTime(time)}
-                        className={`py-3 rounded-lg border font-accent text-xs transition-all duration-300 ${
+                        className={`py-3 rounded-lg border font-accent text-[11px] transition-all duration-300 ${
                           selectedTime === time
                             ? 'bg-gold-primary text-emerald-deep border-gold-primary'
                             : 'border-emerald-deep/20 text-neutral-slate hover:border-gold-primary'
@@ -178,7 +178,7 @@ export default function BookingPage() {
                     { label: 'ESTIMATED PRICE', value: '$85+' },
                   ].map((item) => (
                     <div key={item.label}>
-                      <p className="font-accent text-[10px] tracking-widest text-gold-primary mb-1">
+                      <p className="font-accent text-[10px] tracking-wide-2 text-gold-primary mb-1">
                         {item.label}
                       </p>
                       <p className="font-heading text-lg text-emerald-deep">{item.value}</p>

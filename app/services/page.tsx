@@ -42,7 +42,7 @@ function ServiceCard({ name, desc, price, time }: { name: string; desc: string; 
       <div>
         <h4 className="font-heading text-xl text-emerald-deep mb-2">{name}</h4>
         <p className="font-body text-sm text-neutral-slate mb-2">{desc}</p>
-        <span className="font-accent text-xs text-neutral-silver">{time}</span>
+        <span className="font-accent text-[11px] text-neutral-silver">{time}</span>
       </div>
       <p className="font-display text-2xl text-gold-primary">{price}</p>
     </div>
@@ -55,7 +55,7 @@ function ServiceCategory({ title, services }: { title: string; services: typeof 
       <h2 className="font-heading text-4xl text-emerald-deep mb-10 pb-4 border-b-2 border-gold-primary/30">
         {title}
       </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6">
         {services.map((service, i) => (
           <ServiceCard key={i} {...service} />
         ))}
@@ -71,14 +71,14 @@ export default function ServicesPage() {
       <section className="page-header">
         <p className="section-label">WHAT WE OFFER</p>
         <h1 className="font-display text-5xl md:text-7xl text-emerald-deep mb-5">Our Services</h1>
-        <p className="font-body text-lg text-neutral-slate max-w-xl mx-auto">
+        <p className="font-body text-lg text-neutral-slate max-w-text mx-auto">
           From precision cuts to transformative color, every service is executed with
           master-level technique.
         </p>
       </section>
 
       {/* Services List */}
-      <section className="py-24 px-10 max-w-7xl mx-auto">
+      <section className="py-[100px] px-10 max-w-container mx-auto">
         <ServiceCategory title="Cutting & Styling" services={cuttingServices} />
         <ServiceCategory title="Color Artistry" services={colorServices} />
         <ServiceCategory title="Treatments & Care" services={treatmentServices} />
@@ -87,14 +87,14 @@ export default function ServicesPage() {
         <div className="p-16 rounded-3xl bg-gradient-to-br from-gold-champagne/40 to-neutral-pearl border border-gold-primary/20 text-center">
           <span className="text-5xl mb-6 block">👑</span>
           <h2 className="font-display text-4xl text-emerald-deep mb-4">Bridal Services</h2>
-          <p className="font-body text-base text-neutral-slate max-w-xl mx-auto mb-8">
+          <p className="font-body text-base text-neutral-slate max-w-text mx-auto mb-8">
             Your wedding day deserves perfection. Includes consultation, trial session, and
             day-of styling.
           </p>
           <div className="flex gap-6 justify-center flex-wrap">
             {bridalServices.map((item, i) => (
               <div key={i} className="px-8 py-5 rounded-xl bg-neutral-white shadow-card-sm">
-                <p className="font-accent text-xs text-emerald-deep mb-1">{item.name}</p>
+                <p className="font-accent text-[12px] text-emerald-deep mb-1">{item.name}</p>
                 <p className="font-display text-xl text-gold-primary">{item.price}</p>
               </div>
             ))}

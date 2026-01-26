@@ -21,24 +21,24 @@
 @layer components {
   /* Primary Button */
   .btn-primary {
-    @apply px-8 py-4 rounded-full border-none bg-gold-gradient text-emerald-deep 
-           font-accent text-xs font-semibold tracking-widest cursor-pointer 
-           shadow-gold transition-all duration-300 hover:-translate-y-0.5 
+    @apply px-8 py-4 rounded-full border-none bg-gold-gradient text-emerald-deep
+           font-accent text-[11px] font-semibold tracking-wide-2 cursor-pointer
+           shadow-gold transition-all duration-300 hover:-translate-y-0.5
            hover:shadow-gold-lg active:translate-y-0;
   }
   
   /* Secondary Button */
   .btn-secondary {
-    @apply px-8 py-4 rounded-full border-2 border-emerald-deep bg-transparent 
-           text-emerald-deep font-accent text-xs font-medium tracking-widest 
-           cursor-pointer transition-all duration-300 hover:-translate-y-0.5 
+    @apply px-8 py-4 rounded-full border-2 border-emerald-deep bg-transparent
+           text-emerald-deep font-accent text-[12px] font-medium tracking-wide-3
+           cursor-pointer transition-all duration-300 hover:-translate-y-0.5
            hover:bg-emerald-deep/5;
   }
   
   /* Gold Outline Button */
   .btn-outline-gold {
-    @apply px-8 py-4 rounded-full border-2 border-gold-primary bg-transparent 
-           text-gold-primary font-accent text-xs font-medium tracking-widest 
+    @apply px-8 py-4 rounded-full border-2 border-gold-primary bg-transparent
+           text-gold-primary font-accent text-[11px] font-medium tracking-wide-2
            cursor-pointer transition-all duration-300 hover:-translate-y-0.5;
   }
   
@@ -54,7 +54,7 @@
   
   /* Section Label */
   .section-label {
-    @apply font-accent text-xs tracking-extra-wide text-gold-primary uppercase mb-4;
+    @apply font-accent text-[11px] tracking-wide-5 text-gold-primary uppercase mb-4;
   }
   
   /* Section Title */
@@ -72,12 +72,12 @@
   
   /* Form Label */
   .form-label {
-    @apply block font-accent text-xs tracking-widest text-gold-primary mb-2;
+    @apply block font-accent text-[10px] tracking-wide-2 text-gold-primary mb-2;
   }
   
   /* Nav Link */
   .nav-link {
-    @apply font-accent text-xs tracking-widest cursor-pointer transition-all duration-300
+    @apply font-accent text-[11px] tracking-wide-2 cursor-pointer transition-all duration-300
            pb-1 border-b-2 border-transparent uppercase;
   }
   
@@ -121,7 +121,7 @@
   }
   
   .stat-label {
-    @apply font-accent text-xs tracking-widest text-gold-champagne;
+    @apply font-accent text-[11px] tracking-wide-2 text-gold-champagne;
   }
   
   /* Page Header */

@@ -20,7 +20,7 @@ export default function ContactPage() {
         <h1 className="font-display text-5xl md:text-7xl text-emerald-deep">Contact Us</h1>
       </section>
 
-      <section className="py-24 px-10 max-w-6xl mx-auto">
+      <section className="py-[100px] px-10 max-w-container-md mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="card p-12">
@@ -61,7 +61,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-8">
             {/* Address */}
             <div className="p-10 rounded-3xl bg-emerald-gradient">
-              <h4 className="font-accent text-xs tracking-widest text-gold-primary mb-6">
+              <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 VISIT US
               </h4>
               <p className="font-heading text-xl text-neutral-pearl leading-relaxed">
@@ -75,7 +75,7 @@ export default function ContactPage() {
 
             {/* Hours */}
             <div className="card p-10">
-              <h4 className="font-accent text-xs tracking-widest text-gold-primary mb-6">
+              <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 HOURS
               </h4>
               {hours.map((item, i) => (
@@ -86,14 +86,14 @@ export default function ContactPage() {
                   }`}
                 >
                   <span className="font-body text-sm text-neutral-charcoal">{item.day}</span>
-                  <span className="font-accent text-xs text-emerald-deep">{item.hours}</span>
+                  <span className="font-accent text-[12px] text-emerald-deep">{item.hours}</span>
                 </div>
               ))}
             </div>
 
             {/* Contact Details */}
             <div className="p-10 rounded-3xl bg-gold-champagne/50">
-              <h4 className="font-accent text-xs tracking-widest text-gold-primary mb-6">
+              <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 CONTACT
               </h4>
               <p className="font-body text-base text-emerald-deep mb-3">📞 (310) 555-HAIR</p>
