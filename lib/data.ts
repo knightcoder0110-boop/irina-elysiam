@@ -240,14 +240,12 @@ export const faqData = [
 // ============================================
 export const stats = [
   { number: '15+', label: 'Years Experience' },
-  { number: '10K+', label: 'Happy Clients' },
-  { number: '25+', label: 'Expert Stylists' },
-  { number: '50+', label: 'Awards Won' },
+  { number: '100s', label: 'Happy Clients' },
+  { number: '5★', label: 'Google Rating' },
 ]
 
 export const reviewStats = [
-  { value: '4.9', label: 'Average Rating' },
-  { value: '500+', label: 'Google Reviews' },
-  { value: '98%', label: 'Would Recommend' },
-  { value: '#1', label: 'Rated Salon' },
+  { value: '5.0', label: 'Google Rating' },
+  { value: '100%', label: 'Would Recommend' },
+  { value: '15+', label: 'Years Experience' },
 ]

@@ -34,9 +34,8 @@ const services = [
 
 const stats = [
   { number: '15+', label: 'Years Experience' },
-  { number: '10K+', label: 'Happy Clients' },
-  { number: '25+', label: 'Expert Stylists' },
-  { number: '50+', label: 'Awards Won' },
+  { number: '100s', label: 'Happy Clients' },
+  { number: '5★', label: 'Google Rating' },
 ]
 
 const testimonials = [
@@ -212,7 +211,7 @@ export default function HomePage() {
             to excellence.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-16">
+          <div className="grid grid-cols-3 gap-10 mt-16">
             {stats.map((stat, i) => (
               <div key={i}>
                 <p className="stat-number">{stat.number}</p>

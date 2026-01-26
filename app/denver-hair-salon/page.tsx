@@ -158,7 +158,7 @@ export default function DenverHairSalonPage() {
         {/* Stats */}
         <section className="py-20 px-6 md:px-10 bg-emerald-gradient">
           <div className="max-w-container-md mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            <div className="grid grid-cols-3 gap-10 text-center">
               {stats.map((stat, i) => (
                 <div key={i}>
                   <p className="stat-number">{stat.number}</p>

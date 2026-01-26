@@ -7,19 +7,18 @@ export const metadata: Metadata = {
 }
 
 const reviews = [
-  { quote: "The balayage Marcus did is absolutely stunning. Everyone asks where I get my hair done!", name: 'Amanda S.', service: 'Balayage', rating: 5, image: '/images/balayage-brunette-long-1.jpg' },
-  { quote: "Best haircut I've ever had. Sofia really understood what I wanted.", name: 'Rachel T.', service: 'Precision Cut', rating: 5, image: '/images/pixie-blonde-highlights-1.jpg' },
-  { quote: "My husband and son both come here now. David is amazing with men's cuts.", name: 'Lisa M.', service: 'Family Services', rating: 5, image: '/images/bob-blonde-salon-1.jpg' },
+  { quote: "The balayage is absolutely stunning. Everyone asks where I get my hair done!", name: 'Amanda S.', service: 'Balayage', rating: 5, image: '/images/balayage-brunette-long-1.jpg' },
+  { quote: "Best haircut I've ever had. Irina really understood what I wanted.", name: 'Rachel T.', service: 'Precision Cut', rating: 5, image: '/images/pixie-blonde-highlights-1.jpg' },
+  { quote: "My husband and son both come here now. Great with the whole family!", name: 'Lisa M.', service: 'Family Services', rating: 5, image: '/images/bob-blonde-salon-1.jpg' },
   { quote: "The Brazilian blowout changed my life. My morning routine is so much easier!", name: 'Caroline H.', service: 'Brazilian Blowout', rating: 5, image: '/images/layered-blonde-waves-1.jpg' },
-  { quote: "Olivia made me look like a princess on my wedding day. Couldn't be happier!", name: 'Jessica R.', service: 'Bridal', rating: 5, image: '/images/curly-blonde-medium-1.jpg' },
+  { quote: "Irina made me look like a princess on my wedding day. Couldn't be happier!", name: 'Jessica R.', service: 'Bridal', rating: 5, image: '/images/curly-blonde-medium-1.jpg' },
   { quote: "Finally found a colorist who gets it. My highlights look natural and expensive.", name: 'Megan K.', service: 'Highlights', rating: 5, image: '/images/bob-blonde-highlights-1.jpg' },
 ]
 
 const stats = [
-  { value: '4.9', label: 'Average Rating' },
-  { value: '500+', label: 'Google Reviews' },
-  { value: '98%', label: 'Would Recommend' },
-  { value: '#1', label: 'Rated Salon' },
+  { value: '5.0', label: 'Google Rating' },
+  { value: '100%', label: 'Would Recommend' },
+  { value: '15+', label: 'Years Experience' },
 ]
 
 export default function TestimonialsPage() {
@@ -81,7 +80,7 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 p-6 md:p-10 lg:p-12 rounded-3xl bg-gold-champagne/40 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 text-center">
+        <div className="mt-20 p-6 md:p-10 lg:p-12 rounded-3xl bg-gold-champagne/40 grid grid-cols-3 gap-6 md:gap-10 text-center">
           {stats.map((stat, i) => (
             <div key={i}>
               <p className="font-display text-4xl text-emerald-deep mb-2">{stat.value}</p>
