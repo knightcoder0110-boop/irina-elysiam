@@ -20,10 +20,10 @@ export default function ContactPage() {
         <h1 className="font-display text-5xl md:text-7xl text-emerald-deep">Contact Us</h1>
       </section>
 
-      <section className="py-[100px] px-10 max-w-container-md mx-auto">
+      <section className="py-16 md:py-[100px] px-6 md:px-10 max-w-container-md mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="card p-12">
+          <div className="card p-6 md:p-10">
             <h3 className="font-heading text-3xl text-emerald-deep mb-8">Send Us a Message</h3>
 
             <form className="flex flex-col gap-6">
@@ -60,7 +60,7 @@ export default function ContactPage() {
           {/* Contact Info */}
           <div className="flex flex-col gap-8">
             {/* Address */}
-            <div className="p-10 rounded-3xl bg-emerald-gradient">
+            <div className="p-6 md:p-8 rounded-3xl bg-emerald-gradient">
               <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 VISIT US
               </h4>
@@ -74,7 +74,7 @@ export default function ContactPage() {
             </div>
 
             {/* Hours */}
-            <div className="card p-10">
+            <div className="card p-6 md:p-8">
               <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 HOURS
               </h4>
@@ -92,7 +92,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Details */}
-            <div className="p-10 rounded-3xl bg-gold-champagne/50">
+            <div className="p-6 md:p-8 rounded-3xl bg-gold-champagne/50">
               <h4 className="font-accent text-[11px] tracking-wide-3 text-gold-primary mb-6">
                 CONTACT
               </h4>

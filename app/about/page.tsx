@@ -42,7 +42,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-[100px] px-10 max-w-container-sm mx-auto">
+      <section className="py-16 md:py-[100px] px-6 md:px-10 max-w-container-sm mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <h2 className="font-heading text-4xl text-emerald-deep mb-6">A Legacy of Excellence</h2>
@@ -68,7 +68,7 @@ export default function AboutPage() {
         </div>
 
         {/* Values */}
-        <div className="p-16 rounded-3xl bg-neutral-white border border-gold-primary/15 shadow-card">
+        <div className="p-6 md:p-10 lg:p-16 rounded-3xl bg-neutral-white border border-gold-primary/15 shadow-card">
           <h3 className="font-display text-3xl text-emerald-deep text-center mb-12">
             Our Core Values
           </h3>
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       {/* Amenities */}
-      <section className="py-[100px] px-10 bg-emerald-gradient">
+      <section className="py-16 md:py-[100px] px-6 md:px-10 bg-emerald-gradient">
         <div className="max-w-container-md mx-auto">
           <h3 className="font-display text-4xl text-gold-light text-center mb-16">
             The Elysian Experience

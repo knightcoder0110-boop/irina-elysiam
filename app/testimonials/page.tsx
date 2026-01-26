@@ -33,9 +33,9 @@ export default function TestimonialsPage() {
         </h1>
       </section>
 
-      <section className="py-[100px] px-10 max-w-container-md mx-auto">
+      <section className="py-16 md:py-[100px] px-6 md:px-10 max-w-container-md mx-auto">
         {/* Featured Review */}
-        <div className="p-16 rounded-3xl bg-emerald-gradient text-center mb-16">
+        <div className="p-6 md:p-10 lg:p-16 rounded-3xl bg-emerald-gradient text-center mb-16">
           <div className="text-5xl opacity-40 mb-6">"</div>
           <p className="font-heading text-2xl md:text-3xl italic text-gold-light leading-relaxed max-w-3xl mx-auto mb-8">
             Irina Elysian transformed not just my hair, but my entire sense of self. From
@@ -81,7 +81,7 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 p-12 rounded-3xl bg-gold-champagne/40 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+        <div className="mt-20 p-6 md:p-10 lg:p-12 rounded-3xl bg-gold-champagne/40 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 text-center">
           {stats.map((stat, i) => (
             <div key={i}>
               <p className="font-display text-4xl text-emerald-deep mb-2">{stat.value}</p>

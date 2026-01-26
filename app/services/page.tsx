@@ -79,7 +79,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services List */}
-      <section className="py-[100px] px-10 max-w-container mx-auto">
+      <section className="py-16 md:py-[100px] px-6 md:px-10 max-w-container mx-auto">
         <ServiceCategory title="Cutting & Styling" services={cuttingServices} />
         <ServiceCategory title="Color Artistry" services={colorServices} />
         <ServiceCategory title="Treatments & Care" services={treatmentServices} />
@@ -98,7 +98,7 @@ export default function ServicesPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gold-champagne/60 lg:block hidden" />
             </div>
             {/* Content Side */}
-            <div className="p-12 lg:p-16 text-center lg:text-left">
+            <div className="p-6 md:p-10 lg:p-16 text-center lg:text-left">
               <span className="text-5xl mb-6 block">👑</span>
               <h2 className="font-display text-4xl text-emerald-deep mb-4">Bridal Services</h2>
               <p className="font-body text-base text-neutral-slate max-w-text mx-auto lg:mx-0 mb-8">
