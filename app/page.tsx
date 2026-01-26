@@ -107,15 +107,15 @@ export default function HomePage() {
           {services.map((service, i) => (
             <div key={i} className="card card-hover p-12 cursor-pointer">
               <div className="icon-circle icon-circle-gold mb-7">{service.icon}</div>
-              <h3 className="font-heading text-2xl font-medium text-emerald-deep mb-4">
+              <h3 className="font-heading text-[26px] font-medium text-emerald-deep mb-4">
                 {service.title}
               </h3>
-              <p className="font-body text-sm leading-relaxed text-neutral-slate mb-6">
+              <p className="font-body text-[15px] leading-[1.7] text-neutral-slate mb-6">
                 {service.description}
               </p>
               <div className="pt-5 border-t border-gold-primary/20 flex justify-between items-center">
                 <span className="font-display text-xl text-gold-primary">{service.price}</span>
-                <span className="font-accent text-xs tracking-widest text-emerald-deep">
+                <span className="font-accent text-[11px] tracking-wide-2 text-emerald-deep">
                   LEARN MORE →
                 </span>
               </div>
