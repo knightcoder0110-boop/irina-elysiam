@@ -37,7 +37,7 @@ export default function HighlightsDenverPage() {
         {/* Hero */}
         <section className="relative min-h-[50vh] flex items-center">
           <div className="absolute inset-0">
-            <Image src="/images/bob-blonde-highlights-1.jpg" alt="Highlights Denver" fill className="object-cover" priority />
+            <Image src="/images/new-images/client-hair-coloring-foils-process-1.jpeg" alt="Highlights Denver" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-deep/90 to-emerald-deep/60" />
           </div>
           <div className="relative z-10 max-w-container mx-auto px-6 md:px-10 py-20">
@@ -68,6 +68,31 @@ export default function HighlightsDenverPage() {
                 <p className="font-accent text-[11px] text-neutral-silver">{type.time}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Real Process Photos */}
+        <section className="py-20 px-6 md:px-10 max-w-container mx-auto">
+          <p className="section-label text-center mb-10">THE PROCESS</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+              <Image src="/images/new-images/client-hair-coloring-foils-process-1.jpeg" alt="Foil highlight process Denver" fill className="object-cover" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-emerald-deep/80 to-transparent p-4">
+                <p className="font-heading text-sm text-neutral-white">Foil Placement</p>
+              </div>
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+              <Image src="/images/new-images/close-up-foils-hair-coloring-process-2.jpeg" alt="Hair coloring foil close-up Denver" fill className="object-cover" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-emerald-deep/80 to-transparent p-4">
+                <p className="font-heading text-sm text-neutral-white">Processing</p>
+              </div>
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+              <Image src="/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg" alt="Finished highlights result Denver" fill className="object-cover" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-emerald-deep/80 to-transparent p-4">
+                <p className="font-heading text-sm text-neutral-white">Finished Result</p>
+              </div>
+            </div>
           </div>
         </section>
 

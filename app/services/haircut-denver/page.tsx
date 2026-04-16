@@ -30,7 +30,7 @@ export default function HaircutDenverPage() {
         {/* Hero */}
         <section className="relative min-h-[50vh] flex items-center">
           <div className="absolute inset-0">
-            <Image src="/images/pixie-blonde-highlights-1.jpg" alt="Haircut Denver" fill className="object-cover" priority />
+            <Image src="/images/new-images/straight-bob-blonde-highlights.jpeg" alt="Haircut Denver" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-deep/90 to-emerald-deep/60" />
           </div>
           <div className="relative z-10 max-w-container mx-auto px-6 md:px-10 py-20">

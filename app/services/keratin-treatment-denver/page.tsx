@@ -42,7 +42,7 @@ export default function KeratinTreatmentDenverPage() {
         <section className="py-20 px-6 md:px-10 max-w-container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[450px] rounded-3xl overflow-hidden">
-              <Image src="/images/layered-blonde-waves-1.jpg" alt="Keratin treatment result" fill className="object-cover" />
+              <Image src="/images/new-images/close-up-foils-hair-coloring-process-2.jpeg" alt="Keratin treatment process Denver" fill className="object-cover" />
             </div>
             <div>
               <h2 className="font-display text-3xl text-emerald-deep mb-6">What is Keratin Treatment?</h2>

@@ -39,7 +39,7 @@ export default function BrazilianBlowoutDenverPage() {
         {/* Hero */}
         <section className="relative min-h-[50vh] flex items-center">
           <div className="absolute inset-0">
-            <Image src="/images/layered-blonde-waves-1.jpg" alt="Brazilian Blowout Denver" fill className="object-cover" priority />
+            <Image src="/images/new-images/client-back-blonde-highlights-wavy.jpeg" alt="Brazilian Blowout Denver" fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-deep/90 to-emerald-deep/60" />
           </div>
           <div className="relative z-10 max-w-container mx-auto px-6 md:px-10 py-20">
@@ -80,7 +80,7 @@ export default function BrazilianBlowoutDenverPage() {
               </div>
             </div>
             <div className="relative h-[500px] rounded-3xl overflow-hidden">
-              <Image src="/images/curly-blonde-medium-2.jpg" alt="Smooth hair result" fill className="object-cover" />
+              <Image src="/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg" alt="Smooth hair result after treatment" fill className="object-cover" />
             </div>
           </div>
         </section>

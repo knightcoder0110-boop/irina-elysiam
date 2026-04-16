@@ -7,7 +7,7 @@ const services = [
     title: 'Precision Cutting',
     description: 'Master-level cuts tailored to your face shape, lifestyle, and personal style.',
     price: 'From $75',
-    image: '/images/pixie-blonde-highlights-1.jpg',
+    image: '/images/new-images/straight-bob-blonde-highlights.jpeg',
     href: '/services/haircut-denver',
   },
   {
@@ -15,7 +15,7 @@ const services = [
     title: 'Color Artistry',
     description: 'Balayage, highlights, full color—dimensional, natural-looking results.',
     price: 'From $150',
-    image: '/images/balayage-brunette-long-1.jpg',
+    image: '/images/new-images/client-back-blonde-highlights-wavy.jpeg',
     href: '/services/balayage-denver',
   },
   {
@@ -23,7 +23,7 @@ const services = [
     title: 'Treatments & Care',
     description: 'Keratin treatments, deep conditioning, and scalp therapies.',
     price: 'From $100',
-    image: '/images/layered-blonde-waves-1.jpg',
+    image: '/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg',
     href: '/services/brazilian-blowout-denver',
   },
   {
@@ -47,13 +47,13 @@ const testimonials = [
     quote: "The attention to detail is extraordinary. I've never felt more confident.",
     name: 'Sarah M.',
     service: 'Balayage & Cut',
-    image: '/images/balayage-brunette-long-2.jpg',
+    image: '/images/new-images/client-hair-coloring-foils-process-1.jpeg',
   },
   {
     quote: 'A truly transformative experience. The whole family comes here now.',
     name: 'Michael R.',
     service: 'Family Styling',
-    image: '/images/bob-blonde-salon-1.jpg',
+    image: '/images/new-images/stylist-hugging-male-client-with-highlights.jpeg',
   },
   {
     quote: 'My wedding day hair was absolutely perfect. Worth every penny.',
@@ -64,8 +64,8 @@ const testimonials = [
 ]
 
 const featuredWork = [
-  { src: '/images/platinum-blonde-portrait.jpg', title: 'Platinum Perfection' },
-  { src: '/images/pixie-rose-gold-1.jpg', title: 'Rose Gold Dream' },
+  { src: '/images/new-images/close-up-foils-hair-coloring-process-2.jpeg', title: 'Color Processing' },
+  { src: '/images/new-images/mens-hair-dark-with-blonde-highlights-wet.jpeg', title: 'Mens Highlighting' },
   { src: '/images/bob-blonde-highlights-1.jpg', title: 'Classic Bob' },
   { src: '/images/balayage-brunette-long-3.jpg', title: 'Sun-Kissed Balayage' },
 ]

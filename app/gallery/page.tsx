@@ -6,9 +6,44 @@ export const metadata: Metadata = {
   description: 'Browse our portfolio of stunning hair transformations at Irina Elysian Hair Design Studio.',
 }
 
-const categories = ['All', 'Color', 'Cuts', 'Styling', 'Highlights']
+const categories = ['All', 'Color', 'Cuts', 'Styling', 'Highlights', 'Process']
 
 const galleryItems = [
+  {
+    src: '/images/new-images/straight-bob-blonde-highlights.jpeg',
+    category: 'Cuts',
+    title: 'Bob with Highlights',
+  },
+  {
+    src: '/images/new-images/client-back-blonde-highlights-wavy.jpeg',
+    category: 'Highlights',
+    title: 'Wavy Blonde Highlights',
+  },
+  {
+    src: '/images/new-images/client-hair-coloring-foils-process-1.jpeg',
+    category: 'Process',
+    title: 'Foil Color Process',
+  },
+  {
+    src: '/images/new-images/close-up-foils-hair-coloring-process-2.jpeg',
+    category: 'Process',
+    title: 'Close-Up Foils',
+  },
+  {
+    src: '/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg',
+    category: 'Highlights',
+    title: 'Brunette + Blonde Highlights',
+  },
+  {
+    src: '/images/new-images/mens-hair-dark-with-blonde-highlights-wet.jpeg',
+    category: 'Highlights',
+    title: "Men's Highlights",
+  },
+  {
+    src: '/images/new-images/stylist-hugging-male-client-with-highlights.jpeg',
+    category: 'Cuts',
+    title: 'Happy Client',
+  },
   {
     src: '/images/balayage-brunette-long-1.jpg',
     category: 'Color',

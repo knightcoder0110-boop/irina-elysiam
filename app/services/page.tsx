@@ -78,6 +78,33 @@ export default function ServicesPage() {
         </p>
       </section>
 
+      {/* Real Work Photo Strip */}
+      <section className="py-10 px-6 md:px-10 max-w-container mx-auto">
+        <p className="section-label text-center mb-6">REAL CLIENT RESULTS</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group">
+            <Image src="/images/new-images/straight-bob-blonde-highlights.jpeg" alt="Bob with blonde highlights - Irina Elysian Denver" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <p className="absolute bottom-3 left-3 font-heading text-sm text-neutral-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Bob + Highlights</p>
+          </div>
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group">
+            <Image src="/images/new-images/client-back-blonde-highlights-wavy.jpeg" alt="Wavy blonde highlights client - Denver salon" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <p className="absolute bottom-3 left-3 font-heading text-sm text-neutral-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Wavy Color</p>
+          </div>
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group">
+            <Image src="/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg" alt="Brunette hair with blonde highlights - Denver" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <p className="absolute bottom-3 left-3 font-heading text-sm text-neutral-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Brunette Highlights</p>
+          </div>
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group">
+            <Image src="/images/new-images/mens-hair-dark-with-blonde-highlights-wet.jpeg" alt="Mens hair with highlights - Irina Elysian" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <p className="absolute bottom-3 left-3 font-heading text-sm text-neutral-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Men&apos;s Highlights</p>
+          </div>
+        </div>
+      </section>
+
       {/* Services List */}
       <section className="py-16 md:py-[100px] px-6 md:px-10 max-w-container mx-auto">
         <ServiceCategory title="Cutting & Styling" services={cuttingServices} />
@@ -90,8 +117,8 @@ export default function ServicesPage() {
             {/* Image Side */}
             <div className="h-64 lg:h-auto relative">
               <Image
-                src="/images/curly-blonde-medium-1.jpg"
-                alt="Bridal Hair Styling"
+                src="/images/new-images/stylist-hugging-male-client-with-highlights.jpeg"
+                alt="Bridal Hair Styling at Irina Elysian"
                 fill
                 className="object-cover"
               />
