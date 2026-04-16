@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import VideoReelCarousel, { type VideoReel } from '@/components/VideoReelCarousel'
 
 const services = [
   {
@@ -68,6 +69,90 @@ const featuredWork = [
   { src: '/images/new-images/mens-hair-dark-with-blonde-highlights-wet.jpeg', title: 'Mens Highlighting' },
   { src: '/images/bob-blonde-highlights-1.jpg', title: 'Classic Bob' },
   { src: '/images/balayage-brunette-long-3.jpg', title: 'Sun-Kissed Balayage' },
+]
+
+const reels: VideoReel[] = [
+  {
+    src: '/videos/salon-showcase.mp4',
+    title: 'Welcome to Irina Elysian',
+    caption: 'Denver\'s premier hair design studio — where artistry meets elegance.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'instagram',
+    link: '/booking',
+    linkLabel: 'Book Now',
+  },
+  {
+    src: '/videos/brunette-bob-cut-blow-dry-style.mp4',
+    title: 'The Perfect Bob',
+    caption: 'Precision cuts and expert blow-dry styling for a flawless finish.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'instagram',
+    link: '/services/haircut-denver',
+    linkLabel: 'See Haircuts',
+  },
+  {
+    src: '/videos/brunette-bob-cut-wet-hair.mp4',
+    title: 'Fresh Cut Reveal',
+    caption: 'Every cut starts with a thorough consultation and precision shaping.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'tiktok',
+    link: '/services/haircut-denver',
+    linkLabel: 'Book a Cut',
+  },
+  {
+    src: '/videos/womens-short-bob-styling-back-view.mp4',
+    title: 'Short Bob Perfection',
+    caption: 'Clean lines, beautiful volume — the timeless bob reimagined.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'instagram',
+    link: '/services/haircut-denver',
+    linkLabel: 'Explore Cuts',
+  },
+  {
+    src: '/videos/brunette-short-hair-wet-styling.mp4',
+    title: 'Wet Styling Session',
+    caption: 'Watch our stylists sculpt and perfect each cut from start to finish.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'tiktok',
+    link: '/booking',
+    linkLabel: 'Book Today',
+  },
+  {
+    src: '/videos/mens-haircut-gray-hair-before-after.mp4',
+    title: 'Men\'s Transformation',
+    caption: 'Expert men\'s grooming — cuts, trims, and neck cleanup.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'instagram',
+    link: '/services/haircut-denver',
+    linkLabel: 'Men\'s Services',
+  },
+  {
+    src: '/videos/mens-short-haircut-dry-style.mp4',
+    title: 'Finished & Polished',
+    caption: 'The final result — styled, dried, and ready to impress.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'tiktok',
+    link: '/booking',
+    linkLabel: 'Book Now',
+  },
+  {
+    src: '/videos/mens-short-haircut-wet-style.mp4',
+    title: 'Precision Men\'s Cut',
+    caption: 'Detailed scissor work for a sharp, modern men\'s silhouette.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'instagram',
+    link: '/services/haircut-denver',
+    linkLabel: 'View Services',
+  },
+  {
+    src: '/videos/mens-gray-haircut-finished-style.mp4',
+    title: 'Distinguished Finish',
+    caption: 'Classic cuts for the modern gentleman — timeless and refined.',
+    socialHandle: '@irina.elysian',
+    socialPlatform: 'tiktok',
+    link: '/booking',
+    linkLabel: 'Book Yours',
+  },
 ]
 
 export default function HomePage() {
@@ -195,6 +280,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── VIDEO REELS SECTION ────────────────────────────────────────── */}
+      <VideoReelCarousel
+        reels={reels}
+        heading="Watch the Magic"
+        subheading="Real transformations, real results — direct from our chair."
+        autoAdvanceMs={7000}
+      />
 
       {/* Brand Promise */}
       <section className="py-[120px] px-6 md:px-10 bg-emerald-gradient relative overflow-hidden">
