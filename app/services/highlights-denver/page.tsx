@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 }
 
 const highlightTypes = [
-  { name: 'Full Highlights', desc: 'Complete foil highlights throughout', price: '$185+', time: '2.5 hrs' },
-  { name: 'Partial Highlights', desc: 'Face-framing and top sections', price: '$140', time: '2 hrs' },
-  { name: 'Baby Lights', desc: 'Ultra-fine, natural-looking highlights', price: '$200+', time: '3 hrs' },
-  { name: 'Highlights + Gloss', desc: 'Highlights with toning treatment', price: '$220+', time: '3 hrs' },
+  { name: 'Full Highlights', desc: 'Complete foil highlights throughout', time: '2.5 hrs' },
+  { name: 'Partial Highlights', desc: 'Face-framing and top sections', time: '2 hrs' },
+  { name: 'Baby Lights', desc: 'Ultra-fine, natural-looking highlights', time: '3 hrs' },
+  { name: 'Highlights + Gloss', desc: 'Highlights with toning treatment', time: '3 hrs' },
 ]
 
 export default function HighlightsDenverPage() {
@@ -59,13 +59,10 @@ export default function HighlightsDenverPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {highlightTypes.map((type, i) => (
-              <div key={i} className="card p-8">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-heading text-xl text-emerald-rich">{type.name}</h3>
-                  <p className="font-display text-2xl text-gold-primary">{type.price}</p>
-                </div>
+              <div key={i} className="card p-6">
+                <h4 className="font-heading text-lg text-emerald-rich mb-1">{type.name}</h4>
                 <p className="font-body text-sm text-neutral-stone mb-2">{type.desc}</p>
-                <p className="font-accent text-[11px] text-neutral-silver">{type.time}</p>
+                <span className="font-accent text-[11px] text-neutral-silver">{type.time}</span>
               </div>
             ))}
           </div>

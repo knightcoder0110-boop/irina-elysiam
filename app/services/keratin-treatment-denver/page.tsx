@@ -59,11 +59,6 @@ export default function KeratinTreatmentDenverPage() {
                   </div>
                 ))}
               </div>
-              <div className="p-6 rounded-xl bg-gold-champagne/30 border border-gold-primary/20">
-                <p className="font-accent text-[11px] tracking-wide-2 text-gold-primary mb-2">PRICING</p>
-                <p className="font-display text-3xl text-emerald-deep">$350</p>
-                <p className="font-body text-sm text-neutral-stone">Approximately 3 hours</p>
-              </div>
             </div>
           </div>
         </section>

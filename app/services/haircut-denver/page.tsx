@@ -53,10 +53,7 @@ export default function HaircutDenverPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.cutting.map((service, i) => (
               <div key={i} className="card p-8">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-heading text-xl text-emerald-rich">{service.name}</h3>
-                  <p className="font-display text-2xl text-gold-primary">{service.price}</p>
-                </div>
+                <h3 className="font-heading text-xl text-emerald-rich mb-2">{service.name}</h3>
                 <p className="font-body text-sm text-neutral-stone mb-2">{service.description}</p>
                 <p className="font-accent text-[11px] text-neutral-silver">{service.duration}</p>
               </div>

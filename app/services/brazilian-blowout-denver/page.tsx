@@ -73,11 +73,6 @@ export default function BrazilianBlowoutDenverPage() {
                   </li>
                 ))}
               </ul>
-              <div className="p-6 rounded-xl bg-gold-champagne/30 border border-gold-primary/20">
-                <p className="font-accent text-[11px] tracking-wide-2 text-gold-primary mb-2">PRICING</p>
-                <p className="font-display text-3xl text-emerald-deep">$300</p>
-                <p className="font-body text-sm text-neutral-stone">Approximately 2.5 hours</p>
-              </div>
             </div>
             <div className="relative h-[500px] rounded-3xl overflow-hidden">
               <Image src="/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg" alt="Smooth hair result after treatment" fill className="object-cover" />

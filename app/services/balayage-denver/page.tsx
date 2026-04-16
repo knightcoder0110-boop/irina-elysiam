@@ -27,10 +27,10 @@ export const metadata: Metadata = {
 }
 
 const balayageTypes = [
-  { name: 'Classic Balayage', desc: 'Natural, sun-kissed dimension throughout', price: '$220+' },
-  { name: 'Partial Balayage', desc: 'Face-framing and top sections only', price: '$180+' },
-  { name: 'Full Balayage', desc: 'Comprehensive coverage for maximum dimension', price: '$280+' },
-  { name: 'Balayage + Toner', desc: 'Includes gloss for perfect tone', price: '$250+' },
+  { name: 'Classic Balayage', desc: 'Natural, sun-kissed dimension throughout' },
+  { name: 'Partial Balayage', desc: 'Face-framing and top sections only' },
+  { name: 'Full Balayage', desc: 'Comprehensive coverage for maximum dimension' },
+  { name: 'Balayage + Toner', desc: 'Includes gloss for perfect tone' },
 ]
 
 const faqs = [
@@ -158,18 +158,15 @@ export default function BalayageDenverPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {balayageTypes.map((type, i) => (
-                <div key={i} className="card p-8 flex justify-between items-center">
+                <div key={i} className="card p-8">
                   <div>
                     <h3 className="font-heading text-xl text-emerald-rich mb-2">{type.name}</h3>
                     <p className="font-body text-sm text-neutral-stone">{type.desc}</p>
                   </div>
-                  <p className="font-display text-2xl text-gold-primary">{type.price}</p>
                 </div>
               ))}
             </div>
-            <p className="text-center font-body text-sm text-neutral-stone mt-8">
-              *Prices vary based on hair length and thickness. Consultation recommended.
-            </p>
+
           </div>
         </section>
 

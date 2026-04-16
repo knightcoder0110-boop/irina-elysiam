@@ -7,7 +7,7 @@ const services = [
     icon: '✂️',
     title: 'Precision Cutting',
     description: 'Master-level cuts tailored to your face shape, lifestyle, and personal style.',
-    price: 'From $75',
+    price: '',
     image: '/images/new-images/straight-bob-blonde-highlights.jpeg',
     href: '/services/haircut-denver',
   },
@@ -15,7 +15,7 @@ const services = [
     icon: '🎨',
     title: 'Color Artistry',
     description: 'Balayage, highlights, full color—dimensional, natural-looking results.',
-    price: 'From $150',
+    price: '',
     image: '/images/new-images/client-back-blonde-highlights-wavy.jpeg',
     href: '/services/balayage-denver',
   },
@@ -23,7 +23,7 @@ const services = [
     icon: '✨',
     title: 'Treatments & Care',
     description: 'Keratin treatments, deep conditioning, and scalp therapies.',
-    price: 'From $100',
+    price: '',
     image: '/images/new-images/straight-brunette-hair-with-blonde-highlights-wet.jpeg',
     href: '/services/brazilian-blowout-denver',
   },
@@ -31,7 +31,7 @@ const services = [
     icon: '👑',
     title: 'Bridal & Special',
     description: 'Picture-perfect styling for your most important moments.',
-    price: 'From $250',
+    price: '',
     image: '/images/curly-blonde-medium-1.jpg',
     href: '/services',
   },
@@ -232,7 +232,7 @@ export default function HomePage() {
                   {service.description}
                 </p>
                 <div className="pt-5 border-t border-gold-primary/20 flex justify-between items-center">
-                  <span className="font-display text-xl text-gold-primary">{service.price}</span>
+                  {service.price && <span className="font-display text-xl text-gold-primary">{service.price}</span>}
                   <span className="font-accent text-[11px] tracking-wide-2 text-emerald-deep">
                     LEARN MORE →
                   </span>

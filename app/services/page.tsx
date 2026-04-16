@@ -7,37 +7,37 @@ export const metadata: Metadata = {
 }
 
 const cuttingServices = [
-  { name: 'Signature Haircut', desc: 'Consultation, shampoo, precision cut, and style', price: '$85', time: '60 min' },
-  { name: 'Express Cut', desc: 'Quick trim and refresh', price: '$55', time: '30 min' },
-  { name: "Men's Grooming", desc: 'Cut, beard trim, and neck cleanup', price: '$65', time: '45 min' },
-  { name: "Children's Cut", desc: 'Ages 12 and under', price: '$45', time: '30 min' },
-  { name: 'Blowout & Style', desc: 'Shampoo and professional styling', price: '$65', time: '45 min' },
-  { name: 'Special Occasion', desc: 'Updo or elaborate styling', price: '$120+', time: '90 min' },
+  { name: 'Signature Haircut', desc: 'Consultation, shampoo, precision cut, and style', time: '60 min' },
+  { name: 'Express Cut', desc: 'Quick trim and refresh', time: '30 min' },
+  { name: "Men's Grooming", desc: 'Cut, beard trim, and neck cleanup', time: '45 min' },
+  { name: "Children's Cut", desc: 'Ages 12 and under', time: '30 min' },
+  { name: 'Blowout & Style', desc: 'Shampoo and professional styling', time: '45 min' },
+  { name: 'Special Occasion', desc: 'Updo or elaborate styling', time: '90 min' },
 ]
 
 const colorServices = [
-  { name: 'Full Color', desc: 'Complete all-over color application', price: '$150+', time: '2 hrs' },
-  { name: 'Root Touch-Up', desc: 'Refresh your color at the roots', price: '$95', time: '90 min' },
-  { name: 'Balayage', desc: 'Hand-painted, natural-looking dimension', price: '$220+', time: '3 hrs' },
-  { name: 'Full Highlights', desc: 'Foil highlights throughout', price: '$185+', time: '2.5 hrs' },
-  { name: 'Partial Highlights', desc: 'Face-framing and top sections', price: '$140', time: '2 hrs' },
-  { name: 'Gloss Treatment', desc: 'Shine-boosting toner treatment', price: '$65', time: '30 min' },
+  { name: 'Full Color', desc: 'Complete all-over color application', time: '2 hrs' },
+  { name: 'Root Touch-Up', desc: 'Refresh your color at the roots', time: '90 min' },
+  { name: 'Balayage', desc: 'Hand-painted, natural-looking dimension', time: '3 hrs' },
+  { name: 'Full Highlights', desc: 'Foil highlights throughout', time: '2.5 hrs' },
+  { name: 'Partial Highlights', desc: 'Face-framing and top sections', time: '2 hrs' },
+  { name: 'Gloss Treatment', desc: 'Shine-boosting toner treatment', time: '30 min' },
 ]
 
 const treatmentServices = [
-  { name: 'Brazilian Blowout', desc: 'Smoothing treatment for frizz-free hair', price: '$300', time: '2.5 hrs' },
-  { name: 'Keratin Treatment', desc: 'Long-lasting smoothing and shine', price: '$350', time: '3 hrs' },
-  { name: 'Deep Conditioning', desc: 'Intensive moisture therapy', price: '$55', time: '30 min' },
-  { name: 'Scalp Treatment', desc: 'Detoxifying and nourishing scalp therapy', price: '$75', time: '45 min' },
+  { name: 'Brazilian Blowout', desc: 'Smoothing treatment for frizz-free hair', time: '2.5 hrs' },
+  { name: 'Keratin Treatment', desc: 'Long-lasting smoothing and shine', time: '3 hrs' },
+  { name: 'Deep Conditioning', desc: 'Intensive moisture therapy', time: '30 min' },
+  { name: 'Scalp Treatment', desc: 'Detoxifying and nourishing scalp therapy', time: '45 min' },
 ]
 
 const bridalServices = [
-  { name: 'Bridal Trial', price: '$150' },
-  { name: 'Wedding Day Hair', price: '$300' },
-  { name: 'Bridal Party (each)', price: '$125' },
+  { name: 'Bridal Trial' },
+  { name: 'Wedding Day Hair' },
+  { name: 'Bridal Party (each)' },
 ]
 
-function ServiceCard({ name, desc, price, time }: { name: string; desc: string; price: string; time: string }) {
+function ServiceCard({ name, desc, time }: { name: string; desc: string; time: string }) {
   return (
     <div className="service-card">
       <div>
@@ -45,7 +45,6 @@ function ServiceCard({ name, desc, price, time }: { name: string; desc: string; 
         <p className="font-body text-sm text-neutral-stone mb-2">{desc}</p>
         <span className="font-accent text-[11px] text-neutral-silver">{time}</span>
       </div>
-      <p className="font-display text-2xl text-gold-primary">{price}</p>
     </div>
   )
 }
@@ -136,7 +135,6 @@ export default function ServicesPage() {
                 {bridalServices.map((item, i) => (
                   <div key={i} className="px-8 py-5 rounded-xl bg-neutral-white shadow-card-sm">
                     <p className="font-accent text-[12px] text-emerald-rich mb-1">{item.name}</p>
-                    <p className="font-display text-xl text-gold-primary">{item.price}</p>
                   </div>
                 ))}
               </div>

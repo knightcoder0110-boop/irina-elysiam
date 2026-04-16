@@ -29,10 +29,10 @@ export const metadata: Metadata = {
 }
 
 const popularServices = [
-  { name: 'Balayage', desc: 'Hand-painted highlights for natural dimension', price: 'From $220', link: '/services/balayage-denver', image: '/images/balayage-brunette-long-1.jpg' },
-  { name: 'Highlights', desc: 'Full or partial foil highlights', price: 'From $140', link: '/services/highlights-denver', image: '/images/bob-blonde-highlights-1.jpg' },
-  { name: 'Precision Haircuts', desc: 'Expert cuts for the whole family', price: 'From $45', link: '/services/haircut-denver', image: '/images/pixie-blonde-highlights-1.jpg' },
-  { name: 'Brazilian Blowout', desc: 'Smoothing treatment for frizz-free hair', price: 'From $300', link: '/services/brazilian-blowout-denver', image: '/images/layered-blonde-waves-1.jpg' },
+  { name: 'Balayage', desc: 'Hand-painted highlights for natural dimension', link: '/services/balayage-denver', image: '/images/balayage-brunette-long-1.jpg' },
+  { name: 'Highlights', desc: 'Full or partial foil highlights', link: '/services/highlights-denver', image: '/images/bob-blonde-highlights-1.jpg' },
+  { name: 'Precision Haircuts', desc: 'Expert cuts for the whole family', link: '/services/haircut-denver', image: '/images/pixie-blonde-highlights-1.jpg' },
+  { name: 'Brazilian Blowout', desc: 'Smoothing treatment for frizz-free hair', link: '/services/brazilian-blowout-denver', image: '/images/layered-blonde-waves-1.jpg' },
 ]
 
 export default function DenverHairSalonPage() {
@@ -141,7 +141,6 @@ export default function DenverHairSalonPage() {
                   <div className="p-6">
                     <h3 className="font-heading text-xl text-emerald-rich mb-2">{service.name}</h3>
                     <p className="font-body text-sm text-neutral-stone mb-3">{service.desc}</p>
-                    <p className="font-display text-lg text-gold-primary">{service.price}</p>
                   </div>
                 </Link>
               ))}
