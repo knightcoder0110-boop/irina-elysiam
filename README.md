@@ -194,6 +194,12 @@ create table contact_messages (
   source text,
   created_at timestamptz not null default now()
 );
+
+create table site_settings (
+  id text primary key default 'default',
+  settings jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now()
+);
 ```
 
 ### Changing Colors

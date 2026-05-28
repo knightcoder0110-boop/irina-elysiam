@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { businessInfo, businessHours } from '@/lib/data'
+import FooterSocialLinks from '@/components/FooterSocialLinks'
 
 const quickLinks = [
   { label: 'Services', href: '/services' },
@@ -47,19 +48,7 @@ export default function Footer() {
             <p className="font-body text-sm leading-relaxed opacity-80 max-w-xs mb-4">
               {businessInfo.tagline}. {businessInfo.description.slice(0, 100)}...
             </p>
-            <div className="flex gap-4">
-              {Object.entries(businessInfo.social).map(([name, url]) => (
-                <a
-                  key={name}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-accent text-[10px] tracking-wide-2 opacity-70 hover:opacity-100 hover:text-gold-light transition-all duration-300"
-                >
-                  {name.toUpperCase()}
-                </a>
-              ))}
-            </div>
+            <FooterSocialLinks />
           </div>
 
           {/* Quick Links */}
