@@ -136,7 +136,19 @@ For production, copy `.env.example` to `.env.local` and configure:
 
 - `RESEND_API_KEY`, `RESEND_FROM`, `SALON_INTAKE_EMAIL` for email alerts. Use commas for multiple inboxes, e.g. `hello@irina-elysian.com,manager@gmail.com`.
 - `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` for saved requests
-- `ADMIN_ACCESS_KEY` for the private admin inbox
+- `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, `ADMIN_SESSION_SECRET` for the private admin inbox
+
+Generate a safe admin password hash:
+
+```bash
+pnpm hash:admin-password "replace-with-a-strong-password"
+```
+
+Generate a session secret:
+
+```bash
+openssl rand -base64 32
+```
 
 Create these Supabase tables:
 

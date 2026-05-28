@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import type { IntakeRecord, IntakeStatus } from '@/lib/intake'
 
 const statusOptions: IntakeStatus[] = ['new', 'contacted', 'confirmed', 'cancelled']
@@ -24,8 +24,9 @@ function statusLabel(status?: string) {
 }
 
 export default function AdminPage() {
-  const [accessKey, setAccessKey] = useState('')
-  const [savedKey, setSavedKey] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [records, setRecords] = useState<IntakeRecord[]>([])
   const [filter, setFilter] = useState<'all' | 'booking' | 'contact'>('all')
   const [message, setMessage] = useState('')
@@ -45,26 +46,26 @@ export default function AdminPage() {
     }
   }, [records])
 
-  const loadRecords = async (key = savedKey) => {
-    if (!key) return
-
+  const loadRecords = async ({ silentUnauthorized = false } = {}) => {
     setIsLoading(true)
     setMessage('')
 
     try {
       const response = await fetch('/api/admin/intake', {
-        headers: { 'x-admin-key': key },
         cache: 'no-store',
       })
       const data = await response.json().catch(() => null)
 
       if (!response.ok) {
+        if (response.status === 401) {
+          setIsAuthenticated(false)
+          if (silentUnauthorized) return
+        }
         throw new Error(data?.error || 'Could not load requests.')
       }
 
       setRecords(data.records || [])
-      setSavedKey(key)
-      sessionStorage.setItem('irina-admin-key', key)
+      setIsAuthenticated(true)
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Could not load requests.')
     } finally {
@@ -85,7 +86,6 @@ export default function AdminPage() {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          'x-admin-key': savedKey,
         },
         body: JSON.stringify({ id: record.id, kind: record.kind, status }),
       })
@@ -100,13 +100,42 @@ export default function AdminPage() {
     }
   }
 
-  useEffect(() => {
-    const key = sessionStorage.getItem('irina-admin-key') || ''
-    if (key) {
-      setAccessKey(key)
-      setSavedKey(key)
-      void loadRecords(key)
+  const login = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsLoading(true)
+    setMessage('')
+
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      })
+      const data = await response.json().catch(() => null)
+
+      if (!response.ok) {
+        throw new Error(data?.error || 'Could not sign in.')
+      }
+
+      setPassword('')
+      setIsAuthenticated(true)
+      await loadRecords()
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : 'Could not sign in.')
+    } finally {
+      setIsLoading(false)
     }
+  }
+
+  const logout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' })
+    setIsAuthenticated(false)
+    setRecords([])
+    setPassword('')
+  }
+
+  useEffect(() => {
+    void loadRecords({ silentUnauthorized: true })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -124,14 +153,22 @@ export default function AdminPage() {
                 A simple daily workspace for new appointment requests and website messages.
               </p>
             </div>
-            {savedKey && (
-              <button
-                onClick={() => loadRecords()}
-                disabled={isLoading}
-                className="rounded-full border border-emerald-deep/20 px-5 py-3 font-accent text-[11px] font-semibold tracking-wide-2 text-emerald-deep"
-              >
-                {isLoading ? 'REFRESHING' : 'REFRESH'}
-              </button>
+            {isAuthenticated && (
+              <div className="flex gap-2">
+                <button
+                  onClick={() => loadRecords()}
+                  disabled={isLoading}
+                  className="rounded-full border border-emerald-deep/20 px-5 py-3 font-accent text-[11px] font-semibold tracking-wide-2 text-emerald-deep"
+                >
+                  {isLoading ? 'REFRESHING' : 'REFRESH'}
+                </button>
+                <button
+                  onClick={logout}
+                  className="rounded-full bg-emerald-deep px-5 py-3 font-accent text-[11px] font-semibold tracking-wide-2 text-gold-light"
+                >
+                  LOG OUT
+                </button>
+              </div>
             )}
           </div>
         </div>
@@ -139,40 +176,49 @@ export default function AdminPage() {
 
       <section className="px-5 pb-20 md:px-10">
         <div className="mx-auto max-w-container-md">
-          {!savedKey && (
+          {!isAuthenticated && (
             <form
-              onSubmit={(event) => {
-                event.preventDefault()
-                void loadRecords(accessKey)
-              }}
+              onSubmit={login}
               className="rounded-3xl border border-gold-primary/20 bg-neutral-white p-6 shadow-card md:p-8"
             >
-              <h2 className="font-heading text-2xl text-emerald-deep">Admin Access</h2>
+              <h2 className="font-heading text-2xl text-emerald-deep">Admin Sign In</h2>
               <p className="mt-2 font-body text-sm leading-relaxed text-neutral-stone">
-                Enter the private admin key configured on the server.
+                Use the private salon username and password. Your session is stored in a secure server cookie.
               </p>
               <div className="mt-6">
-                <label className="form-label">ACCESS KEY</label>
+                <label className="form-label">USERNAME</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                  autoComplete="username"
+                  placeholder="admin"
+                />
+              </div>
+              <div className="mt-5">
+                <label className="form-label">PASSWORD</label>
                 <input
                   type="password"
                   className="form-input"
-                  value={accessKey}
-                  onChange={(event) => setAccessKey(event.target.value)}
-                  placeholder="Private key"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  autoComplete="current-password"
+                  placeholder="Password"
                 />
               </div>
               {message && <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-900">{message}</p>}
               <button
                 type="submit"
-                disabled={!accessKey || isLoading}
-                className={`btn-primary mt-6 w-full ${!accessKey || isLoading ? 'opacity-45 cursor-not-allowed' : ''}`}
+                disabled={!username || !password || isLoading}
+                className={`btn-primary mt-6 w-full ${!username || !password || isLoading ? 'opacity-45 cursor-not-allowed' : ''}`}
               >
-                {isLoading ? 'OPENING...' : 'OPEN INBOX'}
+                {isLoading ? 'SIGNING IN...' : 'SIGN IN'}
               </button>
             </form>
           )}
 
-          {savedKey && (
+          {isAuthenticated && (
             <>
               <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 {[

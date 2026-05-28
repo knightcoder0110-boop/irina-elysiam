@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { intakeStatuses, type IntakeStatus } from '@/lib/intake'
-import { assertAdmin, listIntakeRecords, updateIntakeStatus } from '@/lib/server/intake-service'
+import { assertAdmin } from '@/lib/server/admin-auth'
+import { listIntakeRecords, updateIntakeStatus } from '@/lib/server/intake-service'
 
 export async function GET(request: Request) {
   const adminError = assertAdmin(request)

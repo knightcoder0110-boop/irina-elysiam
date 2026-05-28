@@ -260,17 +260,3 @@ export async function updateIntakeStatus(kind: 'booking' | 'contact', id: string
 
   return Array.isArray(rows) ? rows[0] : rows
 }
-
-export function assertAdmin(request: Request) {
-  const configuredKey = process.env.ADMIN_ACCESS_KEY
-  if (!configuredKey) {
-    return Response.json({ error: 'Admin access is not configured.' }, { status: 503 })
-  }
-
-  const providedKey = request.headers.get('x-admin-key')
-  if (providedKey !== configuredKey) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
-  return null
-}
