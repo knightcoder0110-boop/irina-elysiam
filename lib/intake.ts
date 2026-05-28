@@ -1,6 +1,6 @@
 export type IntakeKind = 'booking' | 'contact'
 
-export type IntakeStatus = 'new' | 'contacted' | 'confirmed' | 'cancelled'
+export type IntakeStatus = 'new' | 'contacted' | 'confirmed' | 'completed' | 'cancelled' | 'archived'
 
 export type BookingRequest = {
   id?: string
@@ -32,7 +32,7 @@ export type ContactMessage = {
 
 export type IntakeRecord = BookingRequest | ContactMessage
 
-export const intakeStatuses: IntakeStatus[] = ['new', 'contacted', 'confirmed', 'cancelled']
+export const intakeStatuses: IntakeStatus[] = ['new', 'contacted', 'confirmed', 'completed', 'cancelled', 'archived']
 
 export function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)

@@ -31,10 +31,17 @@ export async function POST(request: Request) {
   }
 
   try {
-    const [stored] = await Promise.all([
-      saveContactMessage(message),
-      sendContactEmails(message),
-    ])
+    const stored = await saveContactMessage(message)
+
+    try {
+      await sendContactEmails(message)
+    } catch (emailError) {
+      if (!stored) {
+        throw emailError
+      }
+
+      console.error('Contact email delivery failed after saving message', emailError)
+    }
 
     return NextResponse.json({
       ok: true,
