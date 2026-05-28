@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -26,35 +27,7 @@ export default function ContactPage() {
           <div className="card p-6 md:p-10">
             <h3 className="font-heading text-3xl text-emerald-deep mb-8">Send Us a Message</h3>
 
-            <form className="flex flex-col gap-6">
-              <div>
-                <label className="form-label">YOUR NAME</label>
-                <input type="text" placeholder="Enter your name" className="form-input" />
-              </div>
-
-              <div>
-                <label className="form-label">EMAIL ADDRESS</label>
-                <input type="email" placeholder="your@email.com" className="form-input" />
-              </div>
-
-              <div>
-                <label className="form-label">PHONE NUMBER</label>
-                <input type="tel" placeholder="(555) 123-4567" className="form-input" />
-              </div>
-
-              <div>
-                <label className="form-label">MESSAGE</label>
-                <textarea
-                  placeholder="How can we help you?"
-                  rows={4}
-                  className="form-input resize-y"
-                />
-              </div>
-
-              <button type="submit" className="btn-primary w-full">
-                SEND MESSAGE
-              </button>
-            </form>
+            <ContactForm />
           </div>
 
           {/* Contact Info */}

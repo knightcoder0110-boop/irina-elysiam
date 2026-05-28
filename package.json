@@ -7,7 +7,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "hash:admin-password": "node scripts/hash-admin-password.mjs"
   },
   "dependencies": {
     "next": "^16.1.0",

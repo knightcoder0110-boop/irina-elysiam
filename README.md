@@ -124,6 +124,78 @@ Pre-built Tailwind components in `globals.css`:
 
 ## 🔧 Customization
 
+## 📬 Booking & Contact Intake
+
+The booking and contact forms are wired to real server endpoints:
+
+- `POST /api/booking`
+- `POST /api/contact`
+- `/admin` for reviewing requests on mobile
+
+For production, copy `.env.example` to `.env.local` and configure:
+
+- `RESEND_API_KEY`, `RESEND_FROM`, `SALON_INTAKE_EMAIL` for email alerts. Use commas for multiple inboxes, e.g. `hello@irina-elysian.com,manager@gmail.com`.
+- `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` for saved requests
+- `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, `ADMIN_SESSION_SECRET` for one private admin login
+- `ADMIN_USERS` for multiple admins, using `username=passwordHash,username2=passwordHash`
+
+Generate a safe admin password hash:
+
+```bash
+pnpm hash:admin-password "replace-with-a-strong-password"
+```
+
+Generate a hash with a ready-to-copy multi-admin entry:
+
+```bash
+pnpm hash:admin-password "replace-with-irina-password" irina
+pnpm hash:admin-password "replace-with-manager-password" manager
+```
+
+Then set:
+
+```bash
+ADMIN_USERS="irina=scrypt:...hash...,manager=scrypt:...hash..."
+```
+
+Generate a session secret:
+
+```bash
+openssl rand -base64 32
+```
+
+Create these Supabase tables:
+
+```sql
+create table booking_requests (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null default 'booking',
+  status text not null default 'new',
+  service text not null,
+  stylist text not null,
+  date text not null,
+  time text not null,
+  name text not null,
+  phone text not null,
+  email text not null,
+  notes text,
+  source text,
+  created_at timestamptz not null default now()
+);
+
+create table contact_messages (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null default 'contact',
+  status text not null default 'new',
+  name text not null,
+  phone text,
+  email text not null,
+  message text not null,
+  source text,
+  created_at timestamptz not null default now()
+);
+```
+
 ### Changing Colors
 
 Edit `tailwind.config.ts`:

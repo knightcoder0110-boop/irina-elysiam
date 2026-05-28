@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { businessInfo } from '@/lib/data'
 
 /* ─────────────────────────────────────────────────────────────
    Data
@@ -74,7 +75,7 @@ function Toast({ type, message, onClose }: { type: 'success' | 'error'; message:
         {/* Text */}
         <div className="flex-1">
           <p className="font-accent text-[12px] tracking-wide mb-1" style={{ color: type === 'success' ? '#C9A227' : '#e07070' }}>
-            {type === 'success' ? 'BOOKING CONFIRMED' : 'BOOKING FAILED'}
+            {type === 'success' ? 'REQUEST RECEIVED' : 'REQUEST NOT SENT'}
           </p>
           <p className="font-body text-sm text-white/90 leading-relaxed">{message}</p>
         </div>
@@ -142,17 +143,35 @@ export default function BookingPage() {
   const handleSubmit = async () => {
     if (!canContinue()) return
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 1800))
-    setIsSubmitting(false)
-    // 90% success for demo
-    const success = Math.random() > 0.1
-    if (success) {
+
+    try {
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service: selectedService?.name,
+          stylist: selectedStylist?.name,
+          date: selectedDate,
+          time: selectedTime,
+          name,
+          phone,
+          email,
+          notes,
+          source: 'booking-page',
+        }),
+      })
+
+      const data = await response.json().catch(() => null)
+
+      if (!response.ok) {
+        throw new Error(data?.error || 'We could not send this request right now.')
+      }
+
       setToast({
         type: 'success',
-        message: `Your appointment for ${selectedService?.name} with ${selectedStylist?.name} on ${formatDate(selectedDate)} at ${selectedTime} is confirmed! We'll send a reminder to ${email}.`,
+        message: data?.message || `We received your request for ${selectedService?.name} on ${formatDate(selectedDate)} at ${selectedTime}. We will confirm directly by phone or email.`,
       })
-      // Reset to step 1 after success
+
       setTimeout(() => {
         setStep(1)
         setSelectedService(null)
@@ -164,11 +183,13 @@ export default function BookingPage() {
         setEmail('')
         setNotes('')
       }, 1000)
-    } else {
+    } catch (error) {
       setToast({
         type: 'error',
-        message: 'We couldn\'t confirm your booking right now. Please call us directly or try again in a moment.',
+        message: error instanceof Error ? error.message : 'We could not send this request right now. Please call us directly or try again in a moment.',
       })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -358,8 +379,8 @@ export default function BookingPage() {
           {/* ── STEP 4: Confirm ── */}
           {step === 4 && (
             <>
-              <h2 className="font-heading text-3xl text-emerald-deep mb-2 text-center">Confirm Your Booking</h2>
-              <p className="font-body text-sm text-neutral-stone text-center mb-10">Review your selections and enter your details.</p>
+              <h2 className="font-heading text-3xl text-emerald-deep mb-2 text-center">Send Your Request</h2>
+              <p className="font-body text-sm text-neutral-stone text-center mb-10">Review your preferences. We will confirm availability directly.</p>
 
               {/* Booking Summary */}
               <div className="rounded-2xl overflow-hidden border border-gold-primary/20 mb-10">
@@ -485,11 +506,11 @@ export default function BookingPage() {
                     <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" />
                     </svg>
-                    CONFIRMING…
+                    SENDING…
                   </>
                 ) : (
                   <>
-                    CONFIRM BOOKING
+                    SEND REQUEST
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -503,10 +524,10 @@ export default function BookingPage() {
         {/* Help text */}
         <p className="text-center font-body text-xs text-neutral-stone mt-8">
           Prefer to call?{' '}
-          <a href="tel:+17205550134" className="text-gold-primary hover:text-emerald-deep transition-colors">
-            (720) 555-0134
+          <a href={`tel:${businessInfo.phoneRaw}`} className="text-gold-primary hover:text-emerald-deep transition-colors">
+            {businessInfo.phone}
           </a>{' '}
-          · Appointments confirmed via email within 30 minutes.
+          · Requests are reviewed personally before confirmation.
         </p>
       </section>
     </div>
