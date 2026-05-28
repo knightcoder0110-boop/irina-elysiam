@@ -117,7 +117,7 @@ async function sendEmail({
   html,
   replyTo,
 }: {
-  to: string
+  to: string | string[]
   subject: string
   html: string
   replyTo?: string
@@ -189,7 +189,7 @@ export async function sendBookingEmails(booking: BookingRequest) {
   ]
 
   const salonEmail = await sendEmail({
-    to: config.salonEmails.join(','),
+    to: config.salonEmails,
     replyTo: booking.email,
     subject: `New appointment request: ${booking.name}`,
     html: cardHtml('New Appointment Request', rows),
@@ -215,7 +215,7 @@ export async function sendContactEmails(message: ContactMessage) {
   if (!config) return null
 
   const salonEmail = await sendEmail({
-    to: config.salonEmails.join(','),
+    to: config.salonEmails,
     replyTo: message.email,
     subject: `New website message: ${message.name}`,
     html: cardHtml('New Website Message', [

@@ -50,10 +50,17 @@ export async function POST(request: Request) {
       date: formatBookingDate(booking.date),
     }
 
-    const [stored] = await Promise.all([
-      saveBookingRequest(booking),
-      sendBookingEmails(displayBooking),
-    ])
+    const stored = await saveBookingRequest(booking)
+
+    try {
+      await sendBookingEmails(displayBooking)
+    } catch (emailError) {
+      if (!stored) {
+        throw emailError
+      }
+
+      console.error('Booking email delivery failed after saving request', emailError)
+    }
 
     return NextResponse.json({
       ok: true,
