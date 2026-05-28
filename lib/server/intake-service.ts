@@ -99,10 +99,15 @@ function getEmailConfig() {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) return null
 
+  const salonEmails = (process.env.SALON_INTAKE_EMAIL || businessInfo.email)
+    .split(',')
+    .map((email) => email.trim())
+    .filter(Boolean)
+
   return {
     apiKey,
     from: process.env.RESEND_FROM || `${businessInfo.name} <onboarding@resend.dev>`,
-    salonEmail: process.env.SALON_INTAKE_EMAIL || businessInfo.email,
+    salonEmails,
   }
 }
 
@@ -184,7 +189,7 @@ export async function sendBookingEmails(booking: BookingRequest) {
   ]
 
   const salonEmail = await sendEmail({
-    to: config.salonEmail,
+    to: config.salonEmails.join(','),
     replyTo: booking.email,
     subject: `New appointment request: ${booking.name}`,
     html: cardHtml('New Appointment Request', rows),
@@ -210,7 +215,7 @@ export async function sendContactEmails(message: ContactMessage) {
   if (!config) return null
 
   const salonEmail = await sendEmail({
-    to: config.salonEmail,
+    to: config.salonEmails.join(','),
     replyTo: message.email,
     subject: `New website message: ${message.name}`,
     html: cardHtml('New Website Message', [

@@ -134,7 +134,7 @@ The booking and contact forms are wired to real server endpoints:
 
 For production, copy `.env.example` to `.env.local` and configure:
 
-- `RESEND_API_KEY`, `RESEND_FROM`, `SALON_INTAKE_EMAIL` for email alerts
+- `RESEND_API_KEY`, `RESEND_FROM`, `SALON_INTAKE_EMAIL` for email alerts. Use commas for multiple inboxes, e.g. `hello@irina-elysian.com,manager@gmail.com`.
 - `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` for saved requests
 - `ADMIN_ACCESS_KEY` for the private admin inbox
 
