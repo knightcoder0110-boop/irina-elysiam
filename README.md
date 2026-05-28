@@ -136,12 +136,26 @@ For production, copy `.env.example` to `.env.local` and configure:
 
 - `RESEND_API_KEY`, `RESEND_FROM`, `SALON_INTAKE_EMAIL` for email alerts. Use commas for multiple inboxes, e.g. `hello@irina-elysian.com,manager@gmail.com`.
 - `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` for saved requests
-- `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, `ADMIN_SESSION_SECRET` for the private admin inbox
+- `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, `ADMIN_SESSION_SECRET` for one private admin login
+- `ADMIN_USERS` for multiple admins, using `username=passwordHash,username2=passwordHash`
 
 Generate a safe admin password hash:
 
 ```bash
 pnpm hash:admin-password "replace-with-a-strong-password"
+```
+
+Generate a hash with a ready-to-copy multi-admin entry:
+
+```bash
+pnpm hash:admin-password "replace-with-irina-password" irina
+pnpm hash:admin-password "replace-with-manager-password" manager
+```
+
+Then set:
+
+```bash
+ADMIN_USERS="irina=scrypt:...hash...,manager=scrypt:...hash..."
 ```
 
 Generate a session secret:

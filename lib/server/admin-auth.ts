@@ -12,12 +12,42 @@ type SessionPayload = {
   expiresAt: number
 }
 
+type AdminUser = {
+  username: string
+  passwordHash: string
+}
+
 function base64Url(input: Buffer | string) {
   return Buffer.from(input).toString('base64url')
 }
 
 function getSessionSecret() {
-  return process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_PASSWORD_HASH || ''
+  return process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_PASSWORD_HASH || process.env.ADMIN_USERS || ''
+}
+
+function getAdminUsers(): AdminUser[] {
+  const users = (process.env.ADMIN_USERS || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      const separatorIndex = entry.indexOf('=')
+      if (separatorIndex === -1) return null
+
+      return {
+        username: entry.slice(0, separatorIndex).trim(),
+        passwordHash: entry.slice(separatorIndex + 1).trim(),
+      }
+    })
+    .filter((user): user is AdminUser => Boolean(user?.username && user?.passwordHash))
+
+  const fallbackUsername = process.env.ADMIN_USERNAME
+  const fallbackHash = process.env.ADMIN_PASSWORD_HASH
+  if (fallbackUsername && fallbackHash) {
+    users.push({ username: fallbackUsername, passwordHash: fallbackHash })
+  }
+
+  return users
 }
 
 function getCookie(request: Request, name: string) {
@@ -58,17 +88,14 @@ async function verifyPassword(password: string, storedHash: string) {
 }
 
 export function isAdminAuthConfigured() {
-  return Boolean(process.env.ADMIN_USERNAME && process.env.ADMIN_PASSWORD_HASH && getSessionSecret())
+  return getAdminUsers().length > 0 && Boolean(getSessionSecret())
 }
 
 export async function verifyAdminCredentials(username: string, password: string) {
-  const configuredUsername = process.env.ADMIN_USERNAME
-  const passwordHash = process.env.ADMIN_PASSWORD_HASH
+  const adminUser = getAdminUsers().find((user) => safeEqualString(username, user.username))
+  if (!adminUser) return false
 
-  if (!configuredUsername || !passwordHash) return false
-  if (!safeEqualString(username, configuredUsername)) return false
-
-  return verifyPassword(password, passwordHash)
+  return verifyPassword(password, adminUser.passwordHash)
 }
 
 export function createAdminSession(username: string) {
@@ -93,7 +120,7 @@ export function verifyAdminSession(token?: string) {
 
   try {
     const payload = JSON.parse(Buffer.from(encodedPayload, 'base64url').toString('utf8')) as SessionPayload
-    return payload.expiresAt > Date.now() && payload.username === process.env.ADMIN_USERNAME
+    return payload.expiresAt > Date.now() && getAdminUsers().some((user) => safeEqualString(payload.username, user.username))
   } catch {
     return false
   }
