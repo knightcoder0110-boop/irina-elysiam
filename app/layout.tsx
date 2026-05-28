@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import MobileBottomNav from '@/components/MobileBottomNav'
+import SiteChrome from '@/components/SiteChrome'
 import { HomePageSchema } from '@/components/SchemaMarkup'
 import { businessInfo, seoKeywords } from '@/lib/data'
 
@@ -73,11 +71,8 @@ export default function RootLayout({
       <head>
         <HomePageSchema />
       </head>
-      <body className="min-h-screen bg-neutral-cream text-neutral-charcoal font-body pb-24 lg:pb-0">
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-        <MobileBottomNav />
+      <body className="min-h-screen bg-neutral-cream text-neutral-charcoal font-body">
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   )
