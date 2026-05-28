@@ -5,17 +5,33 @@ import { notFound } from 'next/navigation'
 import { businessInfo, businessHours, neighborhoods, services } from '@/lib/data'
 import { LocalBusinessSchema, BreadcrumbSchema } from '@/components/SchemaMarkup'
 
-// Generate static params for all neighborhoods
+const HAIR_SALON_SUFFIX = '-hair-salon'
+
+function getNeighborhoodFromSlug(slug: string) {
+  const neighborhoodSlug = slug.endsWith(HAIR_SALON_SUFFIX)
+    ? slug.slice(0, -HAIR_SALON_SUFFIX.length)
+    : slug
+
+  return neighborhoods.find((n) => n.slug === neighborhoodSlug)
+}
+
+export const dynamicParams = false
+
+// Generate static params for all neighborhood salon URLs
 export function generateStaticParams() {
   return neighborhoods.map((n) => ({
-    'neighborhood': n.slug,
+    slug: `${n.slug}${HAIR_SALON_SUFFIX}`,
   }))
 }
 
+type NeighborhoodPageProps = {
+  params: Promise<{ slug: string }>
+}
+
 // Generate metadata for each neighborhood
-export function generateMetadata({ params }: { params: { 'neighborhood': string } }): Metadata {
-  const slug = params['neighborhood']
-  const neighborhood = neighborhoods.find((n) => n.slug === slug)
+export async function generateMetadata({ params }: NeighborhoodPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const neighborhood = getNeighborhoodFromSlug(slug)
 
   if (!neighborhood) {
     return { title: 'Not Found' }
@@ -43,9 +59,9 @@ export function generateMetadata({ params }: { params: { 'neighborhood': string 
   }
 }
 
-export default function NeighborhoodPage({ params }: { params: { 'neighborhood': string } }) {
-  const slug = params['neighborhood']
-  const neighborhood = neighborhoods.find((n) => n.slug === slug)
+export default async function NeighborhoodPage({ params }: NeighborhoodPageProps) {
+  const { slug } = await params
+  const neighborhood = getNeighborhoodFromSlug(slug)
 
   if (!neighborhood) {
     notFound()

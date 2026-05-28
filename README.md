@@ -124,6 +124,52 @@ Pre-built Tailwind components in `globals.css`:
 
 ## 🔧 Customization
 
+## 📬 Booking & Contact Intake
+
+The booking and contact forms are wired to real server endpoints:
+
+- `POST /api/booking`
+- `POST /api/contact`
+- `/admin` for reviewing requests on mobile
+
+For production, copy `.env.example` to `.env.local` and configure:
+
+- `RESEND_API_KEY`, `RESEND_FROM`, `SALON_INTAKE_EMAIL` for email alerts
+- `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` for saved requests
+- `ADMIN_ACCESS_KEY` for the private admin inbox
+
+Create these Supabase tables:
+
+```sql
+create table booking_requests (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null default 'booking',
+  status text not null default 'new',
+  service text not null,
+  stylist text not null,
+  date text not null,
+  time text not null,
+  name text not null,
+  phone text not null,
+  email text not null,
+  notes text,
+  source text,
+  created_at timestamptz not null default now()
+);
+
+create table contact_messages (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null default 'contact',
+  status text not null default 'new',
+  name text not null,
+  phone text,
+  email text not null,
+  message text not null,
+  source text,
+  created_at timestamptz not null default now()
+);
+```
+
 ### Changing Colors
 
 Edit `tailwind.config.ts`:
